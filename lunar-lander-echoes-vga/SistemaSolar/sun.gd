@@ -1,9 +1,10 @@
 extends Node3D
-var planetcount = 5
+var planetcount = randi_range(1,10)
 var planets = preload("res://SistemaSolar/planet.tscn")
 var velocidadrotacion = 1
 func _ready() -> void:
 	var grados = 360 / planetcount
+	
 	for i in range(planetcount):
 		var planetinstance = planets.instantiate()
 		planetinstance.position.z = 836 * sin(grados*i) + 0
@@ -11,7 +12,7 @@ func _ready() -> void:
 		$sunmesh/rotacion.add_child(planetinstance)
 		
 		pass
-	print(get_children())	
+	#print(get_children())	
 		
 		
 

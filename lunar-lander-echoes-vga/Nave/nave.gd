@@ -37,7 +37,7 @@ func _on_body_entered(body: Node) -> void:
 		print("Victoria")
 	elif body.is_in_group("Crash"):
 		print("Game Over")
-		get_tree().reload_current_scene()
+		get_tree().call_deferred("reload_current_scene")
 	elif body.is_in_group("Bonus"):
 		print("Bonus")
 	

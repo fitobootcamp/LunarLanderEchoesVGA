@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://c55c0tyad72vk" path="res://SistemaSolar/planet.gd" id="1_dr8hl"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bw7d6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dr8hl"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_bw7d6"]
+material = SubResource("StandardMaterial3D_dr8hl")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dr8hl"]
 
@@ -13,7 +14,6 @@ script = ExtResource("1_dr8hl")
 
 [node name="planetmesh" type="MeshInstance3D" parent="." unique_id=745061138]
 transform = Transform3D(6.403315, 0, 0, 0, 6.403315, 0, 0, 0, 6.403315, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_bw7d6")
 mesh = SubResource("SphereMesh_bw7d6")
 
 [node name="Area3D" type="Area3D" parent="planetmesh" unique_id=1521023849]
