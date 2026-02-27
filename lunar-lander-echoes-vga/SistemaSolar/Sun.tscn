@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://banbyff38s8d1"]
+
+[ext_resource type="Script" uid="uid://dp5vck0sgx6m" path="res://SistemaSolar/sun.gd" id="1_aqymk"]
+[ext_resource type="PackedScene" uid="uid://dncwe2vy7yab" path="res://SistemaSolar/planet.tscn" id="1_vagti"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4oe7t"]
+albedo_color = Color(1, 0.5058824, 0.15294118, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_4oe7t"]
+
+[node name="Sun" type="Node3D" unique_id=1390256791]
+script = ExtResource("1_aqymk")
+
+[node name="sunmesh" type="MeshInstance3D" parent="." unique_id=1759125635]
+transform = Transform3D(1227.9766, 0, 0, 0, 1227.9766, 0, 0, 0, 1227.9766, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_4oe7t")
+mesh = SubResource("SphereMesh_4oe7t")
+
+[node name="rotacion" type="Node3D" parent="sunmesh" unique_id=151404601]
+transform = Transform3D(0.00081434776, 0, 0, 0, 0.00081434776, 0, 0, 0, 0.00081434776, 0, 0, 0)
+
+[node name="planet" parent="sunmesh/rotacion" unique_id=994669841 instance=ExtResource("1_vagti")]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0, 835.99524)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="sunmesh" unique_id=794283415]
+light_color = Color(1, 0.49816817, 0.29360378, 1)
+light_energy = 2.426
+sky_mode = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=265288813]

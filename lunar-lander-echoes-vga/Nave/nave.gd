@@ -16,9 +16,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("motor") and combustible > 0:
 		apply_central_impulse(basis.y * impulso * delta)
 		combustible = clamp(combustible - (consumo * delta),0,combustible)
-		
+		$GPUParticles3D.emitting = true
 		#printt("Combustible: ",combustible)
-	
+	if Input.is_action_just_released("motor"):
+		$GPUParticles3D.emitting = false
+		pass
 	
 	if Input.is_action_pressed("rotacion_left"):
 		apply_torque(Vector3(0,0,inclinacion * delta))

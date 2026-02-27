@@ -1,20 +1,22 @@
 [gd_scene format=3 uid="uid://dhjjfa4k0j2n6"]
 
 [ext_resource type="PackedScene" uid="uid://rqgplelbsso7" path="res://Nave/nave.tscn" id="1_lsmtg"]
+[ext_resource type="Texture2D" uid="uid://divxcbmruk4vj" path="res://space_ft.png" id="1_qacb3"]
 [ext_resource type="PackedScene" uid="uid://digm28vqllkup" path="res://Niveles/Props/landing_base.tscn" id="2_aukub"]
 [ext_resource type="PackedScene" uid="uid://b2koh7hv6caj2" path="res://Niveles/Props/landing_base_gris.tscn" id="3_bl8qv"]
 [ext_resource type="PackedScene" uid="uid://mp0srhrlxuar" path="res://Niveles/Props/obstaculo.tscn" id="4_5vhgk"]
+[ext_resource type="PackedScene" uid="uid://banbyff38s8d1" path="res://SistemaSolar/Sun.tscn" id="5_76cjc"]
+[ext_resource type="Script" uid="uid://jdvkn675tyem" path="res://Niveles/detectorplanetas.gd" id="6_t3vs2"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aukub"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_s4ycd"]
+panorama = ExtResource("1_qacb3")
 
-[sub_resource type="Sky" id="Sky_bl8qv"]
-sky_material = SubResource("ProceduralSkyMaterial_aukub")
+[sub_resource type="Sky" id="Sky_42wvc"]
+sky_material = SubResource("PanoramaSkyMaterial_s4ycd")
 
 [sub_resource type="Environment" id="Environment_5vhgk"]
 background_mode = 2
-sky = SubResource("Sky_bl8qv")
+sky = SubResource("Sky_42wvc")
 tonemap_mode = 2
 
 [sub_resource type="BoxMesh" id="BoxMesh_76cjc"]
@@ -23,6 +25,8 @@ size = Vector3(60, 4, 6)
 [sub_resource type="BoxShape3D" id="BoxShape3D_t3vs2"]
 size = Vector3(60, 4, 6)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_42wvc"]
+
 [node name="Nivel0" type="Node3D" unique_id=1808038008]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=928005184]
@@ -30,6 +34,7 @@ environment = SubResource("Environment_5vhgk")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1036578114]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+visible = false
 shadow_enabled = true
 
 [node name="Piso" type="StaticBody3D" parent="." unique_id=1283061888 groups=["Crash"]]
@@ -48,6 +53,10 @@ impulso = 20.0
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=529916075]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.989967, 25.962944)
+size = 40.252
+
+[node name="Sun" parent="." unique_id=1390256791 instance=ExtResource("5_76cjc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.663147, 5.1315136, -835.187)
 
 [node name="LandingBase" parent="." unique_id=1418045593 instance=ExtResource("2_aukub")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.431335, 0.72490406, 0)
@@ -66,3 +75,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.521388, 6.701048, 0)
 
 [node name="Obstaculo3" parent="." unique_id=1409677723 instance=ExtResource("4_5vhgk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.418168, 3.0324821, 0)
+
+[node name="Detector" type="Node3D" parent="." unique_id=469307855]
+transform = Transform3D(78.68017, 0, 0, 0, 24.607439, 0, 0, 0, 10.530193, 0, 1.2421732, 0)
+script = ExtResource("6_t3vs2")
+
+[node name="Area3D" type="Area3D" parent="Detector" unique_id=326038488]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Detector/Area3D" unique_id=1083887697]
+shape = SubResource("BoxShape3D_42wvc")
+
+[connection signal="area_entered" from="Detector/Area3D" to="Detector" method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Detector/Area3D" to="Detector" method="_on_area_3d_area_exited"]

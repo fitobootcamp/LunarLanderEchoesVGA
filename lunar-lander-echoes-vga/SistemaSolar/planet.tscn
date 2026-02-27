@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dncwe2vy7yab"]
+
+[ext_resource type="Script" uid="uid://c55c0tyad72vk" path="res://SistemaSolar/planet.gd" id="1_dr8hl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bw7d6"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_bw7d6"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dr8hl"]
+
+[node name="planet" type="Node3D" unique_id=994669841]
+script = ExtResource("1_dr8hl")
+
+[node name="planetmesh" type="MeshInstance3D" parent="." unique_id=745061138]
+transform = Transform3D(6.403315, 0, 0, 0, 6.403315, 0, 0, 0, 6.403315, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_bw7d6")
+mesh = SubResource("SphereMesh_bw7d6")
+
+[node name="Area3D" type="Area3D" parent="planetmesh" unique_id=1521023849]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="planetmesh/Area3D" unique_id=41365255]
+shape = SubResource("SphereShape3D_dr8hl")
+
+[connection signal="body_entered" from="planetmesh/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="planetmesh/Area3D" to="." method="_on_area_3d_body_exited"]
