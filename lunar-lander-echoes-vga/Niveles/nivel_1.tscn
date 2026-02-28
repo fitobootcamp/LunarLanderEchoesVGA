@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://14wyuttk0jv8"]
+
+[ext_resource type="Script" uid="uid://b7dvrink0l78v" path="res://Niveles/world_environment.gd" id="1_yx6ie"]
+[ext_resource type="PackedScene" uid="uid://rqgplelbsso7" path="res://Nave/nave.tscn" id="2_welvf"]
+[ext_resource type="PackedScene" uid="uid://digm28vqllkup" path="res://Niveles/Props/landing_base.tscn" id="4_5drqo"]
+[ext_resource type="PackedScene" uid="uid://b2koh7hv6caj2" path="res://Niveles/Props/landing_base_gris.tscn" id="5_m401e"]
+[ext_resource type="PackedScene" uid="uid://mp0srhrlxuar" path="res://Niveles/Props/obstaculo.tscn" id="6_akywv"]
+
+[sub_resource type="Environment" id="Environment_rhy5s"]
+background_mode = 1
+background_color = Color(0.6775041, 0.784652, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_76cjc"]
+size = Vector3(60, 4, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t3vs2"]
+size = Vector3(60, 4, 6)
+
+[node name="Nivel0" type="Node3D" unique_id=1808038008]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2013135576]
+environment = SubResource("Environment_rhy5s")
+script = ExtResource("1_yx6ie")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1036578114]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Piso" type="StaticBody3D" parent="." unique_id=1283061888 groups=["Crash"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Piso" unique_id=1318099363]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9997306, 0)
+mesh = SubResource("BoxMesh_76cjc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Piso" unique_id=395737950]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9939954, 0)
+shape = SubResource("BoxShape3D_t3vs2")
+
+[node name="Nave" parent="." unique_id=1298575181 instance=ExtResource("2_welvf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.268598, 0)
+impulso = 20.0
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=529916075]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.989967, 25.962944)
+size = 40.252
+
+[node name="LandingBase" parent="." unique_id=1418045593 instance=ExtResource("4_5drqo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.431335, 0.72490406, 0)
+
+[node name="LandingBase2" parent="." unique_id=1976961704 instance=ExtResource("4_5drqo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.450647, 7.206922, 0)
+
+[node name="LandingBase3" parent="." unique_id=1299854194 instance=ExtResource("5_m401e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.496144, 0.4718809, 0)
+
+[node name="Obstaculo" parent="." unique_id=1587964437 instance=ExtResource("6_akywv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1133375, 6.701048, 0)
+
+[node name="Obstaculo2" parent="." unique_id=593798837 instance=ExtResource("6_akywv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.521388, 6.701048, 0)
+
+[node name="Obstaculo3" parent="." unique_id=1409677723 instance=ExtResource("6_akywv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.418168, 3.0324821, 0)

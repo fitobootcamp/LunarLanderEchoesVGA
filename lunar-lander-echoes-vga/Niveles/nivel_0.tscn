@@ -2,9 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://rqgplelbsso7" path="res://Nave/nave.tscn" id="1_lsmtg"]
 [ext_resource type="Texture2D" uid="uid://divxcbmruk4vj" path="res://space_ft.png" id="1_qacb3"]
-[ext_resource type="PackedScene" uid="uid://digm28vqllkup" path="res://Niveles/Props/landing_base.tscn" id="2_aukub"]
-[ext_resource type="PackedScene" uid="uid://b2koh7hv6caj2" path="res://Niveles/Props/landing_base_gris.tscn" id="3_bl8qv"]
-[ext_resource type="PackedScene" uid="uid://mp0srhrlxuar" path="res://Niveles/Props/obstaculo.tscn" id="4_5vhgk"]
 [ext_resource type="PackedScene" uid="uid://banbyff38s8d1" path="res://SistemaSolar/Sun.tscn" id="5_76cjc"]
 [ext_resource type="Script" uid="uid://jdvkn675tyem" path="res://Niveles/detectorplanetas.gd" id="6_t3vs2"]
 
@@ -19,12 +16,6 @@ background_mode = 2
 sky = SubResource("Sky_42wvc")
 tonemap_mode = 2
 
-[sub_resource type="BoxMesh" id="BoxMesh_76cjc"]
-size = Vector3(60, 4, 6)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_t3vs2"]
-size = Vector3(60, 4, 6)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_42wvc"]
 
 [node name="Nivel0" type="Node3D" unique_id=1808038008]
@@ -34,18 +25,7 @@ environment = SubResource("Environment_5vhgk")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1036578114]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-visible = false
 shadow_enabled = true
-
-[node name="Piso" type="StaticBody3D" parent="." unique_id=1283061888 groups=["Crash"]]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Piso" unique_id=1318099363]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9997306, 0)
-mesh = SubResource("BoxMesh_76cjc")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Piso" unique_id=395737950]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9939954, 0)
-shape = SubResource("BoxShape3D_t3vs2")
 
 [node name="Nave" parent="." unique_id=1298575181 instance=ExtResource("1_lsmtg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.268598, 0)
@@ -57,24 +37,6 @@ size = 40.252
 
 [node name="Sun" parent="." unique_id=1390256791 instance=ExtResource("5_76cjc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.663147, 5.1315136, -835.187)
-
-[node name="LandingBase" parent="." unique_id=1418045593 instance=ExtResource("2_aukub")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.431335, 0.72490406, 0)
-
-[node name="LandingBase2" parent="." unique_id=1976961704 instance=ExtResource("2_aukub")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.450647, 7.206922, 0)
-
-[node name="LandingBase3" parent="." unique_id=1299854194 instance=ExtResource("3_bl8qv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.496144, 0.4718809, 0)
-
-[node name="Obstaculo" parent="." unique_id=1587964437 instance=ExtResource("4_5vhgk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1133375, 6.701048, 0)
-
-[node name="Obstaculo2" parent="." unique_id=593798837 instance=ExtResource("4_5vhgk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.521388, 6.701048, 0)
-
-[node name="Obstaculo3" parent="." unique_id=1409677723 instance=ExtResource("4_5vhgk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.418168, 3.0324821, 0)
 
 [node name="Detector" type="Node3D" parent="." unique_id=469307855]
 transform = Transform3D(78.68017, 0, 0, 0, 24.607439, 0, 0, 0, 10.530193, 0, 1.2421732, 0)

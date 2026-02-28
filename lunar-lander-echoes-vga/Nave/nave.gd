@@ -9,6 +9,7 @@ extends RigidBody3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	gravity_scale = Globals.migravedad
 	pass # Replace with function body.
 
 
@@ -24,9 +25,14 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("rotacion_left"):
 		apply_torque(Vector3(0,0,inclinacion * delta))
-		
+		$GPUParticles3D2.emitting = true
+	if Input.is_action_just_released("rotacion_left"):
+		$GPUParticles3D2.emitting = false
 	if Input.is_action_pressed("rotacion_right"):
 		apply_torque(Vector3(0,0,-inclinacion * delta))
+		$GPUParticles3D3.emitting = true
+	if Input.is_action_just_released("rotacion_right"):
+		$GPUParticles3D3.emitting = false
 	
 	pass
 

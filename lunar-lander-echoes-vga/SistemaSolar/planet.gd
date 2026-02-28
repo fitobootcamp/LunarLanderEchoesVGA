@@ -1,6 +1,6 @@
 extends Node3D
 var Tamaño
-var GravSc = randf_range(0,2.5)
+var GravSc 
 func _ready() -> void:
 	Tamaño= randf_range(6,15)
 	
@@ -20,10 +20,16 @@ func material():
 	
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Jugador"):
-		print(GravSc)
-		print("dentro")
+		mates()		
+		body.gravity_scale = GravSc
+		Globals.migravedad = GravSc
+		Globals.colorplaneta = $planetmesh.get_active_material(0).albedo_color
+		#print(GravSc)
+		#print("dentro")
+		get_tree().call_deferred("change_scene_to_file","res://Niveles/nivel_1.tscn")
 	pass # Replace with function body.
-
+func mates():
+	GravSc = 0 + (Tamaño - 6)*(2-0)/(15-6)
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.is_in_group("Jugador"):
