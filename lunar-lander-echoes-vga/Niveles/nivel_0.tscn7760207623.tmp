@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dhjjfa4k0j2n6"]
+
+[ext_resource type="PackedScene" uid="uid://rqgplelbsso7" path="res://Nave/nave.tscn" id="1_lsmtg"]
+[ext_resource type="Texture2D" uid="uid://divxcbmruk4vj" path="res://space_ft.png" id="1_qacb3"]
+[ext_resource type="PackedScene" uid="uid://banbyff38s8d1" path="res://SistemaSolar/Sun.tscn" id="5_76cjc"]
+[ext_resource type="Script" uid="uid://jdvkn675tyem" path="res://Niveles/detectorplanetas.gd" id="6_t3vs2"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_s4ycd"]
+panorama = ExtResource("1_qacb3")
+
+[sub_resource type="Sky" id="Sky_42wvc"]
+sky_material = SubResource("PanoramaSkyMaterial_s4ycd")
+
+[sub_resource type="Environment" id="Environment_5vhgk"]
+background_mode = 2
+sky = SubResource("Sky_42wvc")
+tonemap_mode = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_42wvc"]
+
+[node name="Nivel0" type="Node3D" unique_id=1808038008]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=928005184]
+environment = SubResource("Environment_5vhgk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1036578114]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Nave" parent="." unique_id=1298575181 instance=ExtResource("1_lsmtg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.268598, 0)
+impulso = 20.0
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=529916075]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.989967, 25.962944)
+size = 40.252
+
+[node name="Sun" parent="." unique_id=1390256791 instance=ExtResource("5_76cjc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.663147, 5.1315136, -835.187)
+
+[node name="Detector" type="Node3D" parent="." unique_id=469307855]
+transform = Transform3D(78.68017, 0, 0, 0, 24.607439, 0, 0, 0, 10.530193, 0, 1.2421732, 0)
+script = ExtResource("6_t3vs2")
+
+[node name="Area3D" type="Area3D" parent="Detector" unique_id=326038488]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Detector/Area3D" unique_id=1083887697]
+shape = SubResource("BoxShape3D_42wvc")
+
+[connection signal="area_entered" from="Detector/Area3D" to="Detector" method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Detector/Area3D" to="Detector" method="_on_area_3d_area_exited"]

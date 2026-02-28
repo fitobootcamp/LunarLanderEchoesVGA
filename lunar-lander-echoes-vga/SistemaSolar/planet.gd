@@ -1,20 +1,42 @@
 extends Node3D
+class_name Planeta
+var luna_count = randi_range(1,3)
+var lunas = preload("res://SistemaSolar/luna.tscn")
 var Tamaño
 var GravSc 
+@onready var ActiveMesh = get_child(0)
+#func _physics_process(delta: float) -> void:
+	#rotation.y = .5 *delta
+		
+	
 func _ready() -> void:
+	#if self is Planeta:
+		#print("planeta")
 	Tamaño= randf_range(6,15)
 	
-	$planetmesh.scale = Vector3 (Tamaño,Tamaño,Tamaño)
+	ActiveMesh.scale = Vector3 (Tamaño,Tamaño,Tamaño)
+	luna()
 	material()
-
+func luna():
+	if self is Planeta:
+		var grados
+		if luna_count != 0:
+			grados = 360 / luna_count
+		
+		for i in range(luna_count):
+			var lunasinstance = lunas.instantiate()
+			lunasinstance.position.z = (1) * sin(grados*i) + 0
+			lunasinstance.position.x = (1) * cos(grados*i) + 0
+			$planetmesh/RotacionLuna.add_child(lunasinstance)
+		pass
 func material():
-	var original = $planetmesh.get_active_material(0)
+	var original = ActiveMesh.get_active_material(0)
 	
 	var my_material = original.duplicate()
 	#print(original)
 	#print(my_material)
 	my_material.albedo_color = Color(randf(), randf(), randf())
-	$planetmesh.set_surface_override_material(0, my_material)
+	ActiveMesh.set_surface_override_material(0, my_material)
 	#print($planetmesh.get_active_material(0))
 	
 	
@@ -23,7 +45,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		mates()		
 		body.gravity_scale = GravSc
 		Globals.migravedad = GravSc
-		Globals.colorplaneta = $planetmesh.get_active_material(0).albedo_color
+		Globals.colorplaneta = ActiveMesh.get_active_material(0).albedo_color
 		#print(GravSc)
 		#print("dentro")
 		get_tree().call_deferred("change_scene_to_file","res://Niveles/nivel_1.tscn")

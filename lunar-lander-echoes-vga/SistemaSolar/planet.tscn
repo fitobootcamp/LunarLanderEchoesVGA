@@ -21,5 +21,7 @@ mesh = SubResource("SphereMesh_bw7d6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="planetmesh/Area3D" unique_id=41365255]
 shape = SubResource("SphereShape3D_dr8hl")
 
+[node name="RotacionLuna" type="Node3D" parent="planetmesh" unique_id=1577084446]
+
 [connection signal="body_entered" from="planetmesh/Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="planetmesh/Area3D" to="." method="_on_area_3d_body_exited"]

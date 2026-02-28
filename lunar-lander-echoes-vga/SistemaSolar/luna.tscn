@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://sac6b0rhh42e"]
+
+[ext_resource type="Script" uid="uid://8cw858sbw7jp" path="res://SistemaSolar/luna.gd" id="1_wj0o5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t6w1h"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_t6w1h"]
+material = SubResource("StandardMaterial3D_t6w1h")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wj0o5"]
+
+[node name="Luna" type="Node3D" unique_id=1486185140]
+script = ExtResource("1_wj0o5")
+
+[node name="lunamesh" type="MeshInstance3D" parent="." unique_id=1620850125]
+mesh = SubResource("SphereMesh_t6w1h")
+
+[node name="Area3D" type="Area3D" parent="lunamesh" unique_id=2062951037]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lunamesh/Area3D" unique_id=806890466]
+shape = SubResource("SphereShape3D_wj0o5")
+
+[connection signal="body_entered" from="lunamesh/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="lunamesh/Area3D" to="." method="_on_area_3d_body_exited"]
