@@ -15,6 +15,7 @@ func _ready() -> void:
 	Tamaño= randf_range(6,15)
 	
 	ActiveMesh.scale = Vector3 (Tamaño,Tamaño,Tamaño)
+	mates()	
 	luna()
 	material()
 func luna():
@@ -27,7 +28,10 @@ func luna():
 			var lunasinstance = lunas.instantiate()
 			lunasinstance.position.z = (1) * sin(grados*i) + 0
 			lunasinstance.position.x = (1) * cos(grados*i) + 0
+			lunasinstance.ParentGrav = GravSc
 			$planetmesh/RotacionLuna.add_child(lunasinstance)
+			
+			
 		pass
 func material():
 	var original = ActiveMesh.get_active_material(0)
@@ -42,7 +46,7 @@ func material():
 	
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Jugador"):
-		mates()		
+			
 		body.gravity_scale = GravSc
 		Globals.migravedad = GravSc
 		Globals.colorplaneta = ActiveMesh.get_active_material(0).albedo_color
@@ -50,6 +54,8 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		#print("dentro")
 		get_tree().call_deferred("change_scene_to_file","res://Niveles/nivel_1.tscn")
 	pass # Replace with function body.
+func planetui(_state):
+	$MeshInstance3D.visible = _state
 func mates():
 	GravSc = 0 + (Tamaño - 6)*(2-0)/(15-6)
 

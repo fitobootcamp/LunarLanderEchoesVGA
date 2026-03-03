@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dt4hd05lkjhci"]
+
+[ext_resource type="PackedScene" uid="uid://digm28vqllkup" path="res://Niveles/Props/landing_base.tscn" id="1_8lria"]
+[ext_resource type="Script" uid="uid://dqpvapaf7d6ql" path="res://Niveles/planeta_interior.gd" id="1_delkr"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mudc0"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8lria"]
+
+[node name="Planeta_interior" type="Node3D" unique_id=1036612378]
+script = ExtResource("1_delkr")
+
+[node name="planeta_circulo" type="MeshInstance3D" parent="." unique_id=5316015]
+transform = Transform3D(60, 0, 0, 0, -1.2370323e-07, -60, 0, 2.83, -2.6226833e-06, 0, 0, 0)
+mesh = SubResource("CylinderMesh_mudc0")
+
+[node name="Node3D" type="Node3D" parent="planeta_circulo" unique_id=1205596656]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="planeta_circulo" unique_id=1216980685 groups=["Crash"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="planeta_circulo/StaticBody3D" unique_id=1304752718]
+shape = SubResource("CylinderShape3D_8lria")
+
+[node name="LandingBase" parent="." unique_id=1418045593 instance=ExtResource("1_8lria")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.59316295, 30.291061, 0.17679596)

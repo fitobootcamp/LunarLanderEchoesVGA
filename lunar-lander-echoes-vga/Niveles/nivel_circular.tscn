@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dpu8xegd03vo1"]
+
+[ext_resource type="PackedScene" uid="uid://dt4hd05lkjhci" path="res://Niveles/planeta_interior.tscn" id="1_8lqgy"]
+[ext_resource type="Script" uid="uid://dxsqt05ms2x22" path="res://Niveles/nivel_circular.gd" id="1_ewsfc"]
+[ext_resource type="PackedScene" uid="uid://rqgplelbsso7" path="res://Nave/nave.tscn" id="1_gvn24"]
+[ext_resource type="Script" uid="uid://dwyqqx2pgbeny" path="res://Niveles/node_3d.gd" id="3_ogx72"]
+
+[sub_resource type="Environment" id="Environment_4oox0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ewsfc"]
+
+[node name="Nivel circular" type="Node3D" unique_id=187868705]
+script = ExtResource("1_ewsfc")
+
+[node name="ez3denviroment" type="WorldEnvironment" parent="." unique_id=457863717]
+environment = SubResource("Environment_4oox0")
+
+[node name="ez3dlight" type="DirectionalLight3D" parent="." unique_id=1713612411]
+
+[node name="Planeta_interior" parent="." unique_id=1036612378 instance=ExtResource("1_8lqgy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.601871, 0)
+
+[node name="Area3D" type="Area3D" parent="Planeta_interior" unique_id=1869198129]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+gravity_space_override = 3
+gravity_point = true
+gravity_point_center = Vector3(0, 0, 0)
+gravity_direction = Vector3(0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Planeta_interior/Area3D" unique_id=1961723588]
+shape = SubResource("SphereShape3D_ewsfc")
+
+[node name="Node3D" type="Node3D" parent="Planeta_interior" unique_id=283949053]
+script = ExtResource("3_ogx72")
+
+[node name="ez3dcamera" type="Camera3D" parent="Planeta_interior/Node3D" unique_id=79903165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 37.98787, 22.139881)
+
+[node name="Nave" parent="." unique_id=1298575181 instance=ExtResource("1_gvn24")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.408615, 0)
+impulso = 15.0

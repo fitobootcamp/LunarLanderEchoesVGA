@@ -6,15 +6,26 @@ extends RigidBody3D
 @export var combustible : float = 1000
 @export var consumo : float = 10
 @export var escudo : int = 1
+@export var uimesh : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	$MeshInstance3D2.visible = uimesh
 	gravity_scale = Globals.migravedad
 	pass # Replace with function body.
 
-
+#func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
+	#if radialgrav:
+		#var cardinalvec = (Vector3(0,0,0)-position).normalized()
+		#var gravity = 9.8
+		#
+		#gravity = (cardinalvec * gravity)
+		#state.apply(gravity)
 func _physics_process(delta: float) -> void:
+	
 	if Input.is_action_pressed("motor") and combustible > 0:
+		
 		apply_central_impulse(basis.y * impulso * delta)
 		combustible = clamp(combustible - (consumo * delta),0,combustible)
 		$GPUParticles3D.emitting = true

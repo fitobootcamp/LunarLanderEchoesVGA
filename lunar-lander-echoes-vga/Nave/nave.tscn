@@ -35,7 +35,10 @@ scale_curve = SubResource("CurveTexture_nxrwe")
 turbulence_noise_strength = 0.0
 turbulence_noise_scale = 1.747
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ltov4"]
+
 [sub_resource type="SphereMesh" id="SphereMesh_kihxk"]
+material = SubResource("StandardMaterial3D_ltov4")
 radius = 0.2
 rings = 34
 
@@ -55,6 +58,12 @@ tangential_accel_curve = SubResource("CurveTexture_h011k")
 scale_curve = SubResource("CurveTexture_2j0rn")
 turbulence_noise_strength = 0.0
 turbulence_noise_scale = 1.747
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2j0rn"]
+albedo_color = Color(0.9994239, 0, 0.057052217, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_2j0rn"]
+material = SubResource("StandardMaterial3D_2j0rn")
 
 [node name="Nave" type="RigidBody3D" unique_id=1298575181 groups=["Jugador"]]
 axis_lock_linear_z = true
@@ -94,5 +103,11 @@ amount = 13
 process_material = SubResource("ParticleProcessMaterial_2j0rn")
 draw_pass_1 = SubResource("SphereMesh_kihxk")
 draw_skin = SubResource("Skin_1kdj2")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=671806370]
+transform = Transform3D(75, 0, 0, 0, 75, 0, 0, 0, 75, 0, 0, 0)
+visible = false
+layers = 2
+mesh = SubResource("PrismMesh_2j0rn")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

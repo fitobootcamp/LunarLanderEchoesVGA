@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://bxjvm8bbmia7r"]
+
+[ext_resource type="Texture2D" uid="uid://divxcbmruk4vj" path="res://space_ft.png" id="1_pae8n"]
+[ext_resource type="PackedScene" uid="uid://rqgplelbsso7" path="res://Nave/nave.tscn" id="2_xwxrw"]
+[ext_resource type="PackedScene" uid="uid://banbyff38s8d1" path="res://SistemaSolar/Sun.tscn" id="3_miv30"]
+[ext_resource type="Script" uid="uid://cv11ehi88uqnx" path="res://Niveles/stopmoving.gd" id="3_xwxrw"]
+[ext_resource type="Script" uid="uid://jdvkn675tyem" path="res://Niveles/detectorplanetas.gd" id="4_aodmv"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xwxrw"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_s4ycd"]
+panorama = ExtResource("1_pae8n")
+
+[sub_resource type="Sky" id="Sky_42wvc"]
+sky_material = SubResource("PanoramaSkyMaterial_s4ycd")
+
+[sub_resource type="Environment" id="Environment_5vhgk"]
+background_mode = 2
+sky = SubResource("Sky_42wvc")
+tonemap_mode = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_42wvc"]
+
+[node name="Nivel0" type="Node3D" unique_id=1808038008]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=295757485]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1118262953]
+offset_right = 512.0
+offset_bottom = 512.0
+scale = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer" unique_id=1287497329]
+layout_mode = 2
+texture = SubResource("ViewportTexture_xwxrw")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=928005184]
+environment = SubResource("Environment_5vhgk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1036578114]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Nave" parent="." unique_id=1298575181 instance=ExtResource("2_xwxrw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.268598, 0)
+impulso = 200.0
+uimesh = true
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Nave" unique_id=5198712]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.34964)
+
+[node name="Camera3D" type="Camera3D" parent="Nave/SpringArm3D" unique_id=529916075]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.7213697, 25.962952)
+cull_mask = 1048573
+size = 40.252
+script = ExtResource("3_xwxrw")
+
+[node name="Sun" parent="." unique_id=1390256791 instance=ExtResource("3_miv30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.663147, 5.1315136, -835.187)
+AxisSolar1 = 1
+RotacionSolar = 2
+verticaltravel = true
+planetuimesh = true
+velocidadrotacion = 0
+
+[node name="Detector" type="Node3D" parent="." unique_id=469307855]
+transform = Transform3D(78.68017, 0, 0, 0, 24.607439, 0, 0, 0, 10.530193, 0, 1.2421732, 0)
+script = ExtResource("4_aodmv")
+
+[node name="Area3D" type="Area3D" parent="Detector" unique_id=326038488]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Detector/Area3D" unique_id=1083887697]
+shape = SubResource("BoxShape3D_42wvc")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1838494573]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=92953023]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1381.0513)
+
+[connection signal="area_entered" from="Detector/Area3D" to="Detector" method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Detector/Area3D" to="Detector" method="_on_area_3d_area_exited"]

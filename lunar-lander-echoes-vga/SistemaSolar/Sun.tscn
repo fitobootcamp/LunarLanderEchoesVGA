@@ -9,6 +9,9 @@ albedo_color = Color(1, 0.5058824, 0.15294118, 1)
 
 [node name="Sun" type="Node3D" unique_id=1390256791]
 script = ExtResource("1_aqymk")
+AxisSolar1 = 2
+AxisSolar2 = 0
+RotacionSolar = 1
 
 [node name="sunmesh" type="MeshInstance3D" parent="." unique_id=1759125635]
 transform = Transform3D(1227.9766, 0, 0, 0, 1227.9766, 0, 0, 0, 1227.9766, 0, 0, 0)

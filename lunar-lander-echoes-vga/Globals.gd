@@ -1,4 +1,4 @@
 extends Node
 
-var migravedad = 0
+var migravedad = 1
 var colorplaneta = Color(randf(), randf(), randf())
