@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cdejs4wkyp6gi"
+path="res://.godot/imported/EXPLOSION Bang 04.ogg-b38fe753757147d3b7e40613c5aa7bbe.oggvorbisstr"
+
+[deps]
+
+source_file="res://SFX/EXPLOSION Bang 04.ogg"
+dest_files=["res://.godot/imported/EXPLOSION Bang 04.ogg-b38fe753757147d3b7e40613c5aa7bbe.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

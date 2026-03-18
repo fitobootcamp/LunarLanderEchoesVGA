@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ce5nn6cbvaayj"
+path="res://.godot/imported/TECH INTERFACE Computer Terminal Beeps Negative 03.ogg-52dcc2b153445431a7834954fa273507.oggvorbisstr"
+
+[deps]
+
+source_file="res://SFX/TECH INTERFACE Computer Terminal Beeps Negative 03.ogg"
+dest_files=["res://.godot/imported/TECH INTERFACE Computer Terminal Beeps Negative 03.ogg-52dcc2b153445431a7834954fa273507.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

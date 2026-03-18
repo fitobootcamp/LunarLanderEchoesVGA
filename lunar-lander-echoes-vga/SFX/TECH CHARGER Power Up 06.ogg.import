@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b81p8gylkgxks"
+path="res://.godot/imported/TECH CHARGER Power Up 06.ogg-a6e7d51d401de186927b26d48ddbf8f8.oggvorbisstr"
+
+[deps]
+
+source_file="res://SFX/TECH CHARGER Power Up 06.ogg"
+dest_files=["res://.godot/imported/TECH CHARGER Power Up 06.ogg-a6e7d51d401de186927b26d48ddbf8f8.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

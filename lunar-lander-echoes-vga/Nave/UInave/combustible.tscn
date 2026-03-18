@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cwpqwqm72hdot"]
+
+[ext_resource type="Script" uid="uid://dw7ftsctypgf0" path="res://combustible.gd" id="1_8uig2"]
+
+[node name="Combustible" type="Control" unique_id=352101642]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8uig2")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=927433681]
+layout_mode = 0
+offset_right = 148.0
+offset_bottom = 27.0
+max_value = 1000.0
+value = 1000.0

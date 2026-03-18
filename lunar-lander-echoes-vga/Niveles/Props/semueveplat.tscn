@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://2pb4xu4xollo"]
+
+[ext_resource type="Script" uid="uid://cma67mog7htmp" path="res://Niveles/Props/animatable_body_3d.gd" id="1_wbr6m"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0uwqi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_clfxw"]
+
+[sub_resource type="Environment" id="Environment_wbr6m"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wbr6m"]
+
+[node name="Node3D" type="Node3D" unique_id=30094148]
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="." unique_id=1887530773]
+script = ExtResource("1_wbr6m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AnimatableBody3D" unique_id=102276973]
+transform = Transform3D(2.5385675, 0, 0, 0, 0.24293178, 0, 0, 0, 2.3486223, 0, 0, 0)
+mesh = SubResource("BoxMesh_0uwqi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D" unique_id=723832020]
+transform = Transform3D(2.5385675, 0, 0, 0, 0.24293178, 0, 0, 0, 2.3486223, 0, 0, 0)
+shape = SubResource("BoxShape3D_clfxw")
+
+[node name="ez3dcamera" type="Camera3D" parent="." unique_id=1594175853]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49289346, 4.3310947)
+
+[node name="ez3dlight" type="DirectionalLight3D" parent="." unique_id=90157037]
+
+[node name="ez3denviroment" type="WorldEnvironment" parent="." unique_id=1120460129]
+environment = SubResource("Environment_wbr6m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=818713855]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.079837)
+mesh = SubResource("CylinderMesh_wbr6m")

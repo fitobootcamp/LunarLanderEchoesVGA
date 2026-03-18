@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b3rka22emwq1h"
+path="res://.godot/imported/WEAPON CLICK Reload Mechanism 01.ogg-917dbdb7b5effb7891218f804235035b.oggvorbisstr"
+
+[deps]
+
+source_file="res://SFX/WEAPON CLICK Reload Mechanism 01.ogg"
+dest_files=["res://.godot/imported/WEAPON CLICK Reload Mechanism 01.ogg-917dbdb7b5effb7891218f804235035b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

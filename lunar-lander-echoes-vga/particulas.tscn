@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cnp42ma5e6dyf"]
+
+[ext_resource type="Texture2D" uid="uid://c3qdqh41nefhq" path="res://icon.svg" id="1_dwjnv"]
+
+[sub_resource type="Environment" id="Environment_7cxpg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0iuul"]
+albedo_texture = ExtResource("1_dwjnv")
+
+[sub_resource type="QuadMesh" id="QuadMesh_n70mk"]
+material = SubResource("StandardMaterial3D_0iuul")
+
+[node name="Node3D" type="Node3D" unique_id=2136657473]
+
+[node name="ez3dcamera" type="Camera3D" parent="." unique_id=1889395961]
+
+[node name="ez3dlight" type="DirectionalLight3D" parent="." unique_id=1263869071]
+
+[node name="ez3denviroment" type="WorldEnvironment" parent="." unique_id=2139683220]
+environment = SubResource("Environment_7cxpg")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=271213605]
+emitting = false
+mesh = SubResource("QuadMesh_n70mk")

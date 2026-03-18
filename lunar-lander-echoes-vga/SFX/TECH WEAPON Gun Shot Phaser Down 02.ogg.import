@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dqwoebuwp1rdr"
+path="res://.godot/imported/TECH WEAPON Gun Shot Phaser Down 02.ogg-d475ec29a88de6bd5958e4fae5744551.oggvorbisstr"
+
+[deps]
+
+source_file="res://SFX/TECH WEAPON Gun Shot Phaser Down 02.ogg"
+dest_files=["res://.godot/imported/TECH WEAPON Gun Shot Phaser Down 02.ogg-d475ec29a88de6bd5958e4fae5744551.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

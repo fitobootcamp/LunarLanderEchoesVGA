@@ -9,8 +9,9 @@ material = SubResource("StandardMaterial3D_t6w1h")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wj0o5"]
 
-[node name="Luna" type="Node3D" unique_id=1486185140]
+[node name="Luna" type="Node3D" unique_id=1486185140 node_paths=PackedStringArray("ActiveMesh")]
 script = ExtResource("1_wj0o5")
+ActiveMesh = NodePath("lunamesh")
 
 [node name="lunamesh" type="MeshInstance3D" parent="." unique_id=1620850125]
 mesh = SubResource("SphereMesh_t6w1h")

@@ -11,8 +11,9 @@ material = SubResource("StandardMaterial3D_dr8hl")
 
 [sub_resource type="TorusMesh" id="TorusMesh_dr8hl"]
 
-[node name="planet" type="Node3D" unique_id=994669841]
+[node name="planet" type="Node3D" unique_id=994669841 node_paths=PackedStringArray("ActiveMesh")]
 script = ExtResource("1_dr8hl")
+ActiveMesh = NodePath("planetmesh")
 
 [node name="planetmesh" type="MeshInstance3D" parent="." unique_id=745061138]
 transform = Transform3D(6.403315, 0, 0, 0, 6.403315, 0, 0, 0, 6.403315, 0, 0, 0)

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cqj03nnglevj4"
+path="res://.godot/imported/ELECTRIC Shock Zap Short 03.ogg-df83c1be305f28d72c56dc5b30ca6153.oggvorbisstr"
+
+[deps]
+
+source_file="res://SFX/ELECTRIC Shock Zap Short 03.ogg"
+dest_files=["res://.godot/imported/ELECTRIC Shock Zap Short 03.ogg-df83c1be305f28d72c56dc5b30ca6153.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bpkpuccpsfgdx"
+path="res://.godot/imported/SUCCESS CHEERS Win Cute Vocal Chime 03.ogg-00a7c7352f5cc6a348f68a6f8dd6c83e.oggvorbisstr"
+
+[deps]
+
+source_file="res://SFX/SUCCESS CHEERS Win Cute Vocal Chime 03.ogg"
+dest_files=["res://.godot/imported/SUCCESS CHEERS Win Cute Vocal Chime 03.ogg-00a7c7352f5cc6a348f68a6f8dd6c83e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

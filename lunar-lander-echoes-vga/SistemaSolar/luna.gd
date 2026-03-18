@@ -4,7 +4,7 @@ var ParentGrav
 
 func _ready() -> void:
 	
-	ActiveMesh = $lunamesh
+	#ActiveMesh = $lunamesh
 	Tamaño= randf_range(0.25,.35)
 	mates()
 	if self is Luna:

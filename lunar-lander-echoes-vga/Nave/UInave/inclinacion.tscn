@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bgaypn7gc1vbv"]
+
+[ext_resource type="Script" uid="uid://ckpp2ct5xqmqp" path="res://inclinacion.gd" id="1_c4idn"]
+
+[node name="Inclinacion" type="Control" unique_id=1718828362]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c4idn")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1111389609]
+
+[node name="ColorRect" type="ColorRect" parent="Node2D" unique_id=354389908]
+offset_top = 11.000001
+offset_right = 40.0
+offset_bottom = 51.0
+scale = Vector2(0.19109672, -2.17548)
+
+[node name="ColorRect2" type="ColorRect" parent="Node2D" unique_id=484392062]
+offset_left = -30.999998
+offset_top = -8.999999
+offset_right = 9.000002
+offset_bottom = 31.0
+scale = Vector2(1.9200008, 0.23999971)

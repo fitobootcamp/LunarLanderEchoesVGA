@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dghm6et81wh1h"
+path="res://.godot/imported/COINS Collect Jackpot Win 03.ogg-24e612760340b387ed61b71ee1ae1f1c.oggvorbisstr"
+
+[deps]
+
+source_file="res://SFX/COINS Collect Jackpot Win 03.ogg"
+dest_files=["res://.godot/imported/COINS Collect Jackpot Win 03.ogg-24e612760340b387ed61b71ee1ae1f1c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

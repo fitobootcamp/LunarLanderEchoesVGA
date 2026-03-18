@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ct44y85rojnde"
+path="res://.godot/imported/SQUEAK Stretch Tighten Long 01.ogg-10f25d38622c8a3edd0a56d6a2b8e5aa.oggvorbisstr"
+
+[deps]
+
+source_file="res://SFX/SQUEAK Stretch Tighten Long 01.ogg"
+dest_files=["res://.godot/imported/SQUEAK Stretch Tighten Long 01.ogg-10f25d38622c8a3edd0a56d6a2b8e5aa.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

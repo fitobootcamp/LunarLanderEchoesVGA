@@ -4,7 +4,8 @@ var luna_count = randi_range(1,3)
 var lunas = preload("res://SistemaSolar/luna.tscn")
 var Tamaño
 var GravSc 
-@onready var ActiveMesh = get_child(0)
+#@onready var ActiveMesh = get_child(0)
+@export var ActiveMesh : MeshInstance3D
 #func _physics_process(delta: float) -> void:
 	#rotation.y = .5 *delta
 		
@@ -52,7 +53,8 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		Globals.colorplaneta = ActiveMesh.get_active_material(0).albedo_color
 		#print(GravSc)
 		#print("dentro")
-		get_tree().call_deferred("change_scene_to_file","res://Niveles/nivel_1.tscn")
+		#get_tree().call_deferred("change_scene_to_file","res://Niveles/nivel_1.tscn")
+		get_tree().call_deferred("change_scene_to_file","res://Niveles/nivel_circular.tscn")
 	pass # Replace with function body.
 func planetui(_state):
 	$MeshInstance3D.visible = _state

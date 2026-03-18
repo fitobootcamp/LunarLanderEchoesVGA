@@ -1,6 +1,6 @@
 extends Node3D
-var gravscale
-
+#var gravscale
+#
 func _ready() -> void:
 	
-	Globals.migravedad = 1
+	$ez3denviroment.enviroment.background_color = Globals.colorplaneta

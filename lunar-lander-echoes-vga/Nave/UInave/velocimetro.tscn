@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cyh2awaomrr8h"]
+
+[ext_resource type="Script" uid="uid://7w33uj2c8m2f" path="res://Nave/UInave/VelocimetroUI.gd" id="1_h3j8o"]
+
+[node name="Velocimetro" type="Control" unique_id=1343088613]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h3j8o")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=950151881]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.4045111, 0.40451115, 0.4045111, 1)
+
+[node name="Label" type="Label" parent="." unique_id=43309834]
+layout_mode = 0
+offset_right = 54.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 32
