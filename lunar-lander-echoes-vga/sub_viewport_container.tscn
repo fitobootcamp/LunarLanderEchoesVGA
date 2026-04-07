@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b1tn7bapsier3"]
 
 [ext_resource type="Texture2D" uid="uid://dm4rakgo00vef" path="res://SpritesGUi/greeble.png" id="1_gcxxy"]
+[ext_resource type="AudioStream" uid="uid://vxnyjvo8s5yg" path="res://Sounds/Electromagnetic_Computer_Idle_Loop_Mono_Elektrousi_04.wav" id="1_hapya"]
 [ext_resource type="Texture2D" uid="uid://cti4d370ct5yg" path="res://SpritesGUi/fx4.png" id="1_rbxnt"]
 [ext_resource type="Script" uid="uid://trmi12dpji3v" path="res://guitween.gd" id="1_rwk7q"]
 [ext_resource type="PackedScene" uid="uid://g7ihqor8ohal" path="res://Nave/UInave/button.tscn" id="1_t2nh1"]
@@ -17,6 +18,8 @@ glow_intensity = 3.76
 glow_bloom = 0.19
 glow_hdr_threshold = 0.63
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hapya"]
+
 [sub_resource type="FontVariation" id="FontVariation_wpm43"]
 
 [node name="SubViewportContainer" type="SubViewportContainer" unique_id=429302064]
@@ -30,6 +33,10 @@ transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1080, 1024)
 render_target_update_mode = 4
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SubViewport" unique_id=482278822]
+stream = ExtResource("1_hapya")
+autoplay = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport" unique_id=555749124]
 environment = SubResource("Environment_gcxxy")
@@ -99,17 +106,66 @@ offset_right = 182.0
 offset_bottom = 502.0
 theme_override_colors/font_color = Color(1.1755697, 0.81878334, 0, 1)
 theme_override_font_sizes/font_size = 12
+text = "!ERROR"
 script = ExtResource("4_niex8")
 
 [node name="Label2" type="Label" parent="SubViewport/Control" unique_id=1123619660]
 layout_mode = 0
 offset_left = 344.0
-offset_top = 486.0
+offset_top = 479.0
 offset_right = 451.0
-offset_bottom = 509.0
+offset_bottom = 502.0
 theme_override_colors/font_color = Color(1.1755697, 0.81878334, 0, 1)
 theme_override_font_sizes/font_size = 12
+text = "!ERROR"
 script = ExtResource("5_wpm43")
+
+[node name="Panel" type="Panel" parent="SubViewport/Control" unique_id=1434737594]
+clip_contents = true
+layout_mode = 0
+offset_left = 162.0
+offset_top = 94.0
+offset_right = 393.0
+offset_bottom = 429.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hapya")
+
+[node name="Label3" type="Label" parent="SubViewport/Control/Panel" unique_id=1313722476]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 352.0
+offset_right = 414.0
+offset_bottom = 1077.0
+theme_override_colors/font_color = Color(1, 0.84705883, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "extends Control
+
+var tween :Tween
+@onready var arraybuttons : Array [Control]  = [$button2,$button,$button3,$button4]
+func _ready() -> void:
+	$greeb1.self_modulate = Color(1.0, 1.0, 1.0, 0.0)
+	$Sprite2D.self_modulate = Color(1.495, 0.694, 0.0, 0.0)
+	print(arraybuttons)
+	for i in arraybuttons:
+		i.modulate = Color(1.0, 1.0, 1.0, 0.0)
+	$modedisplay.modulate =Color(1.0, 1.0, 1.0, 0.0)
+	$Label.self_modulate =Color(1.0, 1.0, 1.0, 0.0)
+	$Label2.self_modulate =Color(1.0, 1.0, 1.0, 0.0)
+	animation()
+	pass
+
+func animation():
+	tween = create_tween()
+	tween.set_ease(Tween.EASE_IN)
+	tween.set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_property($greeb1,\"self_modulate\",Color(1.0, 1.0, 1.0, 1.0),1.5)
+	tween.tween_property($Sprite2D,\"self_modulate\",Color(1.495, 0.694, 0.0, 1.0),.5)
+	tween.tween_property($modedisplay,\"modulate\",Color(1.495, 0.907, 0.0, 1.0),.5)
+	tween.set_parallel()
+	for i in arraybuttons:
+		tween.tween_property(i,\"modulate\",Color(1.0, 1.0, 1.0, 1.0),.3)
+	tween.tween_property($Label,\"self_modulate\",Color(1.0, 1.0, 1.0, 1.0),.5)
+	tween.tween_property($Label2,\"self_modulate\",Color(1.0, 1.0, 1.0, 1.0),1)"
 
 [node name="modedisplay" type="Label" parent="SubViewport/Control" unique_id=1519803457]
 layout_mode = 0

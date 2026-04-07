@@ -9,15 +9,25 @@ func _ready() -> void:
 	for i in arraybuttons:
 		i.modulate = Color(1.0, 1.0, 1.0, 0.0)
 	$modedisplay.modulate =Color(1.0, 1.0, 1.0, 0.0)
+	$Label.self_modulate =Color(1.0, 1.0, 1.0, 0.0)
+	$Label2.self_modulate =Color(1.0, 1.0, 1.0, 0.0)
 	animation()
 	pass
 
 func animation():
 	tween = create_tween()
+	tween.set_ease(Tween.EASE_IN)
+	tween.set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_property($greeb1,"self_modulate",Color(1.0, 1.0, 1.0, 1.0),1)
+	tween.set_ease(Tween.EASE_IN)
+	tween.set_trans(Tween.TRANS_LINEAR)
+	tween.parallel().tween_property($Panel/Label3,"position",Vector2(1,-600),1.5).set_delay(.5)
+	tween.set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_property($Sprite2D,"self_modulate",Color(1.495, 0.694, 0.0, 1.0),.5)	
+	tween.tween_property($modedisplay,"modulate",Color(1.0, 1.0, 1.0, 1.0),0.5)	
 	
-	tween.tween_property($greeb1,"self_modulate",Color(1.0, 1.0, 1.0, 1.0),.5)
-	tween.tween_property($Sprite2D,"self_modulate",Color(1.495, 0.694, 0.0, 1.0),.5)
-	tween.tween_property($modedisplay,"modulate",Color(1.495, 0.907, 0.0, 1.0),.5)
+	tween.set_parallel()
 	for i in arraybuttons:
-		tween.tween_property(i,"modulate",Color(1.0, 1.0, 1.0, 1.0),.2)
-	
+		tween.tween_property(i,"modulate",Color(1.0, 1.0, 1.0, 1.0),.3)
+	tween.tween_property($Label,"self_modulate",Color(1.0, 1.0, 1.0, 1.0),.5)
+	tween.tween_property($Label2,"self_modulate",Color(1.0, 1.0, 1.0, 1.0),1)

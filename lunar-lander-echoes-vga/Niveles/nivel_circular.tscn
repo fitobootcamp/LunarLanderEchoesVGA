@@ -120,7 +120,6 @@ scale = Vector2(0.32031247, 0.32031247)
 texture = SubResource("ViewportTexture_y5d46")
 
 [node name="SubViewportContainer" parent="CanvasLayer" unique_id=429302064 instance=ExtResource("2_3qx8p")]
-visible = false
 z_index = 10
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=96515897]
