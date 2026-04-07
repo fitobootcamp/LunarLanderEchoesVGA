@@ -17,12 +17,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(absi(navebody.linear_velocity.y))
+	#print(absi(navebody.linear_velocity.y))
 	#con esto eligo un rango de la gradiente, 0 es la velocidad minima y gravmax la velocidad terminal maxima
 	gradpercet = inverse_lerp(0,absi(gravmax),absi(navebody.linear_velocity.y))
-	print(gradiente.sample(gradpercet))
+	#print(gradiente.sample(gradpercet))
 	$Label.text = str(absi(navebody.linear_velocity.y))
 	$Label.add_theme_color_override("font_color", Color(gradiente.sample(gradpercet)))
+	$TextureProgressBar.value = absi(navebody.linear_velocity.y)
 	#$ColorRect.color = gradiente.sample(gradpercet)
 	#if navebody != null:
 		#velocidat = absi(navebody.linear_velocity.y)

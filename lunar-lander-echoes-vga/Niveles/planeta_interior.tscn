@@ -21,5 +21,13 @@ mesh = SubResource("CylinderMesh_mudc0")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="planeta_circulo/StaticBody3D" unique_id=1304752718]
 shape = SubResource("CylinderShape3D_8lria")
 
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="." unique_id=1097231060]
+transform = Transform3D(0.9994629, 0.032771416, 0, -0.032771416, 0.9994629, 0, 0, 0, 1, 0, 0, 0)
+polygon = PackedVector2Array(0, 0, -3.1382418, 54.61114, 1.8132726, 60.34676, 7.601054, 54.749878)
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="." unique_id=534800787]
+transform = Transform3D(0.92621976, 0.37698418, 0, -0.37698418, 0.92621976, 0, 0, 0, 1, 0, 0, 0)
+polygon = PackedVector2Array(0, 0, -3.1382418, 54.61114, 1.8132726, 60.34676, 7.601054, 54.749878)
+
 [node name="LandingBase" parent="." unique_id=1418045593 instance=ExtResource("1_8lria")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.59316295, 30.291061, 0.17679596)
+transform = Transform3D(0.9764393, 0.21579209, 0, -0.21579209, 0.9764393, 0, 0, 0, 1, 8.086627, 31.790525, -0.8828211)

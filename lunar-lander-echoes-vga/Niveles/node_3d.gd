@@ -6,6 +6,7 @@ func _physics_process(delta: float) -> void:
 	var vector = $"../Nave".position
 	var rads = atan2(vector.x,vector.y)
 	rotation.z = rads*-1
+	position = Vector3($"../Nave".position.x,$"../Nave".position.y,position.z)
 	##print(rads,rotation.z)
 	##print(delta)
 	##print(vector)

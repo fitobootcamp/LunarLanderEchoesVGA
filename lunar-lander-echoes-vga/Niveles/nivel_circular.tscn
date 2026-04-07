@@ -3,10 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://dt4hd05lkjhci" path="res://Niveles/planeta_interior.tscn" id="1_8lqgy"]
 [ext_resource type="PackedScene" uid="uid://rqgplelbsso7" path="res://Nave/nave.tscn" id="1_gvn24"]
 [ext_resource type="Script" uid="uid://b7dvrink0l78v" path="res://Niveles/world_environment.gd" id="1_ogx72"]
+[ext_resource type="Script" uid="uid://d3e0xgbybslgo" path="res://Niveles/levelcontrol.gd" id="1_s4bw2"]
+[ext_resource type="PackedScene" uid="uid://b1tn7bapsier3" path="res://sub_viewport_container.tscn" id="2_3qx8p"]
 [ext_resource type="Script" uid="uid://dwyqqx2pgbeny" path="res://Niveles/node_3d.gd" id="3_ogx72"]
+[ext_resource type="Script" uid="uid://bco0lkt1ev4qa" path="res://Niveles/ez_3_dlight.gd" id="3_uw2g3"]
 [ext_resource type="PackedScene" uid="uid://cyh2awaomrr8h" path="res://Nave/UInave/velocimetro.tscn" id="5_bvjpd"]
 [ext_resource type="PackedScene" uid="uid://bgaypn7gc1vbv" path="res://Nave/UInave/inclinacion.tscn" id="6_k8ip4"]
 [ext_resource type="PackedScene" uid="uid://cwpqwqm72hdot" path="res://Nave/UInave/combustible.tscn" id="7_akgap"]
+[ext_resource type="PackedScene" uid="uid://dbno1jup0jvr5" path="res://Nave/UInave/altimetro.tscn" id="8_jm16t"]
+[ext_resource type="PackedScene" uid="uid://d3fjlo5g310y2" path="res://Nave/UInave/gyro.tscn" id="9_y5d46"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ogx72"]
 
@@ -18,16 +23,33 @@ background_mode = 1
 sky = SubResource("Sky_bvjpd")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ewsfc"]
+radius = 0.8
 
 [sub_resource type="PrismMesh" id="PrismMesh_ogx72"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3qx8p"]
+blend_mode = 4
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_y5d46"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Environment" id="Environment_uw2g3"]
+glow_enabled = true
+glow_intensity = 1.25
+glow_bloom = 0.3
+
+[sub_resource type="World3D" id="World3D_3qx8p"]
+environment = SubResource("Environment_uw2g3")
+
 [node name="Nivel circular" type="Node3D" unique_id=187868705]
+script = ExtResource("1_s4bw2")
 
 [node name="ez3denviroment" type="WorldEnvironment" parent="." unique_id=457863717]
 environment = SubResource("Environment_4oox0")
 script = ExtResource("1_ogx72")
 
 [node name="ez3dlight" type="DirectionalLight3D" parent="." unique_id=1713612411]
+script = ExtResource("3_uw2g3")
 
 [node name="Planeta_interior" parent="." unique_id=1036612378 instance=ExtResource("1_8lqgy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.601871, 0)
@@ -51,23 +73,68 @@ visible = false
 mesh = SubResource("PrismMesh_ogx72")
 
 [node name="ez3dcamera" type="Camera3D" parent="Planeta_interior/Node3D" unique_id=79903165]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 37.98787, 28.288387)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 28.288)
 
 [node name="Nave" parent="Planeta_interior" unique_id=1298575181 instance=ExtResource("1_gvn24")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 48.010487, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 69.852554, 0)
 impulso = 20.0
+combustible = 100000.0
 
-[node name="Velocimetro" parent="." unique_id=1343088613 node_paths=PackedStringArray("navebody") instance=ExtResource("5_bvjpd")]
-navebody = NodePath("../Planeta_interior/Nave")
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1474516115]
 
-[node name="Inclinacion" parent="." unique_id=1718828362 node_paths=PackedStringArray("navebody") instance=ExtResource("6_k8ip4")]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=2014950932]
+offset_left = -1.0
+offset_top = -3.0
+offset_right = 359.0
+offset_bottom = 258.0
+color = Color(0, 0, 0, 1)
+
+[node name="Velocimetro" parent="CanvasLayer" unique_id=1343088613 node_paths=PackedStringArray("navebody") instance=ExtResource("5_bvjpd")]
+navebody = NodePath("../../Planeta_interior/Nave")
+
+[node name="Inclinacion" parent="CanvasLayer" unique_id=1718828362 node_paths=PackedStringArray("navebody", "lookatnode") instance=ExtResource("6_k8ip4")]
+visible = false
 offset_left = 41.0
 offset_top = 150.0
 offset_right = 41.0
 offset_bottom = 150.0
-navebody = NodePath("../Planeta_interior/Nave")
+navebody = NodePath("../../Planeta_interior/Nave")
+lookatnode = NodePath("../../Planeta_interior/Node3D")
 
-[node name="Combustible" parent="." unique_id=352101642 node_paths=PackedStringArray("navebody") instance=ExtResource("7_akgap")]
+[node name="Combustible" parent="CanvasLayer" unique_id=352101642 node_paths=PackedStringArray("navebody") instance=ExtResource("7_akgap")]
 offset_left = 190.0
 offset_right = 190.0
-navebody = NodePath("../Planeta_interior/Nave")
+navebody = NodePath("../../Planeta_interior/Nave")
+
+[node name="altimetro" parent="CanvasLayer" unique_id=1852203877 node_paths=PackedStringArray("navebody") instance=ExtResource("8_jm16t")]
+offset_left = 218.0
+offset_top = 87.0
+offset_right = 218.0
+offset_bottom = 87.0
+navebody = NodePath("../../Planeta_interior/Nave")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=8042822]
+material = SubResource("CanvasItemMaterial_3qx8p")
+position = Vector2(125, 124)
+scale = Vector2(0.32031247, 0.32031247)
+texture = SubResource("ViewportTexture_y5d46")
+
+[node name="SubViewportContainer" parent="CanvasLayer" unique_id=429302064 instance=ExtResource("2_3qx8p")]
+visible = false
+z_index = 10
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=96515897]
+own_world_3d = true
+world_3d = SubResource("World3D_3qx8p")
+transparent_bg = true
+use_hdr_2d = true
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=911882678]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.68237, 5.7476254, 1.0109148)
+
+[node name="Node3D" parent="SubViewport" unique_id=569624669 node_paths=PackedStringArray("navebody", "lookatnode") instance=ExtResource("9_y5d46")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.674805, 5.75222, 0)
+navebody = NodePath("../../Planeta_interior/Nave")
+lookatnode = NodePath("../../Planeta_interior/Node3D")
+
+[connection signal="body_exited" from="Planeta_interior/Area3D" to="." method="_on_area_3d_body_exited"]

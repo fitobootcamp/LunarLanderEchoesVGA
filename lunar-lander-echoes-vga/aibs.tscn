@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d3t2bpcvbuiiu"]
+
+[ext_resource type="Script" uid="uid://co057wud8auvq" path="res://node_3d.gd" id="1_gua13"]
+
+[sub_resource type="Environment" id="Environment_gua13"]
+
+[node name="Node3D" type="Node3D" unique_id=717209578]
+
+[node name="ez3dcamera" type="Camera3D" parent="." unique_id=1690063614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 44.35733)
+
+[node name="ez3dlight" type="DirectionalLight3D" parent="." unique_id=1121676612]
+
+[node name="ez3denviroment" type="WorldEnvironment" parent="." unique_id=1615498668]
+environment = SubResource("Environment_gua13")
+
+[node name="MundoCilindrico" type="Node3D" parent="." unique_id=2122023364]
+script = ExtResource("1_gua13")
+escala_ruido = 1.0
+altura_max = 10.0

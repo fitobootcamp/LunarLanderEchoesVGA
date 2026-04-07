@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dvnma8jt2huy2"]
+
+[ext_resource type="Texture2D" uid="uid://dx1sngdohp3r1" path="res://brackeys_vfx_bundle/particles/alpha/smoke_04_a.png" id="1_rqxl3"]
+
+[sub_resource type="Curve" id="Curve_qy1ym"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.22471917), -1.235313, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_o5wxd"]
+curve = SubResource("Curve_qy1ym")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0n80c"]
+gravity = Vector3(0, 9.8, 0)
+scale_curve = SubResource("CurveTexture_o5wxd")
+turbulence_noise_strength = 10.23
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wxgdv"]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("1_rqxl3")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_xkocs"]
+material = SubResource("StandardMaterial3D_wxgdv")
+
+[node name="geyser" type="Node3D" unique_id=795670994]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1858384646]
+emitting = false
+amount = 25
+one_shot = true
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_0n80c")
+draw_pass_1 = SubResource("QuadMesh_xkocs")

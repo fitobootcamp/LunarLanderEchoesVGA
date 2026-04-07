@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://g7ihqor8ohal"]
+
+[ext_resource type="Script" uid="uid://cvhh5rq4bn0f3" path="res://Nave/UInave/button.gd" id="1_uoom7"]
+[ext_resource type="Texture2D" uid="uid://dnoj3kcu2lbu4" path="res://SpritesGUi/guievaspritemap.png" id="1_ykg34"]
+[ext_resource type="AudioStream" uid="uid://bjl3cxn14o18u" path="res://Sounds/Data_Point_02.wav" id="4_146g2"]
+[ext_resource type="AudioStream" uid="uid://bgevow2ojkhg2" path="res://Sounds/Minimalist2.wav" id="5_s4lsk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mae5d"]
+atlas = ExtResource("1_ykg34")
+region = Rect2(925.9553, 955.0188, 1616.596, 614.0558)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lti8b"]
+atlas = ExtResource("1_ykg34")
+region = Rect2(131.24487, 935.8051, 596.42786, 626.7547)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_146g2"]
+atlas = ExtResource("1_ykg34")
+region = Rect2(2825.3535, 1166.9392, 166.375, 181.01599)
+
+[node name="button" type="Control" unique_id=658658463]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_uoom7")
+
+[node name="arrow" type="TextureButton" parent="." unique_id=23920194]
+self_modulate = Color(0.08627451, 0.20784314, 0.19607843, 0.88235295)
+layout_mode = 0
+offset_left = 66.0
+offset_top = 2.375
+offset_right = 1682.0
+offset_bottom = 616.375
+scale = Vector2(0.125, 0.125)
+texture_normal = SubResource("AtlasTexture_mae5d")
+
+[node name="Label" type="Label" parent="arrow" unique_id=1852757905]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 101.0
+offset_right = 1395.0
+offset_bottom = 456.0
+theme_override_colors/font_color = Color(0.52156866, 1, 1, 1)
+theme_override_font_sizes/font_size = 260
+text = "PLAY"
+horizontal_alignment = 2
+
+[node name="connect" type="Sprite2D" parent="." unique_id=901494806]
+self_modulate = Color(0.08627451, 0.20784314, 0.19607843, 0.88235295)
+position = Vector2(38.25, 39.125)
+scale = Vector2(0.125, 0.125)
+texture = SubResource("AtlasTexture_lti8b")
+
+[node name="hex" type="Sprite2D" parent="." unique_id=1926991916]
+self_modulate = Color(0.08627451, 0.20784314, 0.19607843, 0.88235295)
+position = Vector2(265.25, 39.75)
+scale = Vector2(0.125, 0.125)
+texture = SubResource("AtlasTexture_146g2")
+
+[node name="sfx" type="AudioStreamPlayer" parent="." unique_id=1767145354]
+unique_name_in_owner = true
+stream = ExtResource("5_s4lsk")
+
+[node name="sfx2" type="AudioStreamPlayer" parent="." unique_id=1137287420]
+unique_name_in_owner = true
+stream = ExtResource("4_146g2")
+
+[connection signal="mouse_entered" from="arrow" to="." method="_on_arrow_mouse_entered"]
+[connection signal="mouse_exited" from="arrow" to="." method="_on_arrow_mouse_exited"]
+[connection signal="pressed" from="arrow" to="." method="_on_arrow_pressed"]

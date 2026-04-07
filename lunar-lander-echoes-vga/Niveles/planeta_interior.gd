@@ -11,7 +11,7 @@ func _ready() -> void:
 	radioplaneta = radioplaneta.bottom_radius * 60
 	circumfer = TAU * radioplaneta
 	rebanadas = floor(circumfer/ 4)
-	print(rebanadas)
+	#print(rebanadas)
 	
 	for i in rebanadas:
 		#if randf() < 0.25:
@@ -31,7 +31,7 @@ func spwn(pos,angulo,insta):
 		return
 	var newinst = insta.instantiate()
 	var heigh = randf_range(0,6)
-	print(angulo)
+	#print(angulo)
 	newinst.position = pos + (Vector3(heigh,heigh,0)* pos.sign())
 	newinst.rotation.z = angulo + deg_to_rad(-90)
 	add_child(newinst)

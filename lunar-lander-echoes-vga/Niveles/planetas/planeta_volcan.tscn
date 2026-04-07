@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dy6wgp8dox27s"]
+
+[ext_resource type="PackedScene" uid="uid://digm28vqllkup" path="res://Niveles/Props/landing_base.tscn" id="1_amlmj"]
+[ext_resource type="PackedScene" uid="uid://rqgplelbsso7" path="res://Nave/nave.tscn" id="2_kjfx1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f2a36"]
+albedo_color = Color(0.27450982, 0.48235294, 0.70980394, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_623my"]
+material = SubResource("StandardMaterial3D_f2a36")
+top_radius = 30.0
+bottom_radius = 30.0
+height = 8.0
+
+[node name="planeta_volcan" type="Node3D" unique_id=514995419]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=936372075]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_623my")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="." unique_id=2111186965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.5)
+polygon = PackedVector2Array(0, 0, -20.987091, 21.415369, -8, 64, -5.006054, 62.9627, -2.1208897, 30.006079, 2.1554193, 30.0592, 4.923732, 62.708984, 8, 64, 21.374783, 21.415369)
+depth = 8.0
+
+[node name="LandingBase" parent="." unique_id=1418045593 instance=ExtResource("1_amlmj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 31.230581, 0)
+visible = false
+
+[node name="Nave" parent="." unique_id=1298575181 instance=ExtResource("2_kjfx1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.057133, 51.839176, 0)
+
+[node name="LandingBase2" parent="." unique_id=871758710 instance=ExtResource("1_amlmj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 30.309414, 0)

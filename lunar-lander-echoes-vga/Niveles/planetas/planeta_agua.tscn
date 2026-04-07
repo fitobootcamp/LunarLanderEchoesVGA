@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dg81jvanb2g7a"]
+
+[ext_resource type="PackedScene" uid="uid://digm28vqllkup" path="res://Niveles/Props/landing_base.tscn" id="1_t2una"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f2a36"]
+albedo_color = Color(0.27450982, 0.48235294, 0.70980394, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_t2una"]
+material = SubResource("StandardMaterial3D_f2a36")
+top_radius = 30.0
+bottom_radius = 30.0
+height = 8.0
+
+[node name="Node3D" type="Node3D" unique_id=137065365]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=253611199]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_t2una")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="." unique_id=640288876]
+transform = Transform3D(0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 0, 0, 0, 1, 0, 0, 3.4586067)
+polygon = PackedVector2Array(0, 0, 0, 32, 4.2020483, 35.2293, 7.809643, 35.547474, 12.761381, 34.258087, 17.054554, 26.058817)
+depth = 9.0
+
+[node name="LandingBase" parent="." unique_id=1418045593 instance=ExtResource("1_t2una")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38292837, 36.514362, 0)

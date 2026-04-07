@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://digm28vqllkup"]
 
+[ext_resource type="PackedScene" uid="uid://r6gmx6wq718n" path="res://Niveles/Props/fuelcell.tscn" id="1_5570b"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lsmtg"]
 albedo_color = Color(5.77569e-06, 0.89458334, 0.3731514, 1)
 
@@ -11,6 +13,9 @@ size = Vector3(4, 0.5, 4)
 size = Vector3(4, 0.5, 4)
 
 [node name="LandingBase" type="StaticBody3D" unique_id=1418045593 groups=["Bonus"]]
+
+[node name="Node3D" parent="." unique_id=1591646469 instance=ExtResource("1_5570b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13178, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=550152818]
 mesh = SubResource("BoxMesh_aukub")

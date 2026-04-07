@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://r6gmx6wq718n"]
+
+[ext_resource type="Script" uid="uid://6rquosv3c5bq" path="res://pickable.gd" id="1_jrhyh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_omq0y"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_eljk6"]
+material = SubResource("StandardMaterial3D_omq0y")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t3if0"]
+
+[node name="Node3D" type="Node3D" unique_id=1591646469]
+script = ExtResource("1_jrhyh")
+fuelvalue = 1000
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2023099473]
+mesh = SubResource("QuadMesh_eljk6")
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D" unique_id=906572897]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D" unique_id=317522021]
+shape = SubResource("BoxShape3D_t3if0")
+
+[connection signal="body_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_body_entered"]

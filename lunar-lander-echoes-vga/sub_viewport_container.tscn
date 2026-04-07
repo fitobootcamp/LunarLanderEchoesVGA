@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://b1tn7bapsier3"]
+
+[ext_resource type="Texture2D" uid="uid://dm4rakgo00vef" path="res://SpritesGUi/greeble.png" id="1_gcxxy"]
+[ext_resource type="Texture2D" uid="uid://cti4d370ct5yg" path="res://SpritesGUi/fx4.png" id="1_rbxnt"]
+[ext_resource type="Script" uid="uid://trmi12dpji3v" path="res://guitween.gd" id="1_rwk7q"]
+[ext_resource type="PackedScene" uid="uid://g7ihqor8ohal" path="res://Nave/UInave/button.tscn" id="1_t2nh1"]
+[ext_resource type="Script" uid="uid://bq2jjbmwbxp6b" path="res://greebletext.gd" id="4_niex8"]
+[ext_resource type="Script" uid="uid://btlcilmxby0x8" path="res://label_2.gd" id="5_wpm43"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rbxnt"]
+blend_mode = 4
+
+[sub_resource type="Environment" id="Environment_gcxxy"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 3.76
+glow_bloom = 0.19
+glow_hdr_threshold = 0.63
+
+[sub_resource type="FontVariation" id="FontVariation_wpm43"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" unique_id=429302064]
+material = SubResource("CanvasItemMaterial_rbxnt")
+offset_right = 1080.0
+offset_bottom = 1024.0
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1510346818]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1080, 1024)
+render_target_update_mode = 4
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport" unique_id=555749124]
+environment = SubResource("Environment_gcxxy")
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport" unique_id=692604104]
+offset_right = 1199.0
+offset_bottom = 714.0
+color = Color(0, 0.03529412, 0.08235294, 1)
+
+[node name="Control" type="Control" parent="SubViewport" unique_id=1318111530]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 259.0
+offset_top = 55.0
+offset_right = 299.0
+offset_bottom = 95.0
+script = ExtResource("1_rwk7q")
+
+[node name="greeb1" type="Sprite2D" parent="SubViewport/Control" unique_id=731824004]
+position = Vector2(319, 238)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_gcxxy")
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport/Control" unique_id=1026307077]
+self_modulate = Color(1.4954206, 0.69434834, 0, 1)
+position = Vector2(319, 238)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_rbxnt")
+
+[node name="button2" parent="SubViewport/Control" unique_id=725588433 instance=ExtResource("1_t2nh1")]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 194.00002
+offset_right = 185.0
+offset_bottom = 194.00002
+scale = Vector2(0.75, 0.75)
+
+[node name="button3" parent="SubViewport/Control" unique_id=1820502134 instance=ExtResource("1_t2nh1")]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 323.0
+offset_right = 187.0
+offset_bottom = 323.0
+scale = Vector2(0.75, 0.75)
+
+[node name="button" parent="SubViewport/Control" unique_id=658658463 instance=ExtResource("1_t2nh1")]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 260.0
+offset_right = 185.0
+offset_bottom = 260.0
+scale = Vector2(0.75, 0.75)
+
+[node name="button4" parent="SubViewport/Control" unique_id=376224549 instance=ExtResource("1_t2nh1")]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 387.0
+offset_right = 185.0
+offset_bottom = 387.0
+scale = Vector2(0.75, 0.75)
+
+[node name="Label" type="Label" parent="SubViewport/Control" unique_id=291037935]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 479.0
+offset_right = 182.0
+offset_bottom = 502.0
+theme_override_colors/font_color = Color(1.1755697, 0.81878334, 0, 1)
+theme_override_font_sizes/font_size = 12
+script = ExtResource("4_niex8")
+
+[node name="Label2" type="Label" parent="SubViewport/Control" unique_id=1123619660]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 486.0
+offset_right = 451.0
+offset_bottom = 509.0
+theme_override_colors/font_color = Color(1.1755697, 0.81878334, 0, 1)
+theme_override_font_sizes/font_size = 12
+script = ExtResource("5_wpm43")
+
+[node name="modedisplay" type="Label" parent="SubViewport/Control" unique_id=1519803457]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 104.0
+offset_right = 322.0
+offset_bottom = 159.0
+theme_override_colors/font_color = Color(1, 0.7921569, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.79607844, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 40
+text = "PAUSE"
+
+[node name="greeblemode" type="Label" parent="SubViewport/Control/modedisplay" unique_id=1847270953]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 11.0
+offset_right = 164.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(1, 0.7921569, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.79607844, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 10
+text = "M:ID"
+
+[node name="greeblemodeid" type="Label" parent="SubViewport/Control/modedisplay" unique_id=1364621307]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 32.0
+offset_right = 164.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(1, 0.7882353, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.7921569, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("FontVariation_wpm43")
+theme_override_font_sizes/font_size = 10
+text = "0000"
+
+[connection signal="hovering" from="SubViewport/Control/button2" to="SubViewport/Control/Label2" method="_on_button_hovering"]
+[connection signal="hovering" from="SubViewport/Control/button3" to="SubViewport/Control/Label2" method="_on_button_hovering"]
+[connection signal="hovering" from="SubViewport/Control/button" to="SubViewport/Control/Label2" method="_on_button_hovering"]
+[connection signal="hovering" from="SubViewport/Control/button4" to="SubViewport/Control/Label2" method="_on_button_hovering"]
