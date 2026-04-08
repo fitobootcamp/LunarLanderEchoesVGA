@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dmpr66v233tie" path="res://altimetro.gd" id="1_lq45m"]
 [ext_resource type="Texture2D" uid="uid://csr73ngkjaevf" path="res://SpritesGUi/spinygui.png" id="2_0hxpi"]
+[ext_resource type="Texture2D" uid="uid://dkdgqdrftaq0t" path="res://SpritesGUi/textrightbubble.png" id="3_dkpt3"]
 
 [node name="altimetro" type="Control" unique_id=1852203877]
 layout_mode = 3
@@ -13,10 +14,18 @@ grow_vertical = 2
 script = ExtResource("1_lq45m")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1570340244]
-self_modulate = Color(0.8784314, 0.3764706, 0.27058825, 1)
+modulate = Color(1, 0.2784314, 0.16078432, 1)
 texture = ExtResource("2_0hxpi")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1165861751]
+modulate = Color(0.3647059, 0.38431373, 1, 0.64705884)
+position = Vector2(89, 0)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("3_dkpt3")
 
 [node name="Label" type="Label" parent="." unique_id=1153283653]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 73.0
+offset_top = -18.0
+offset_right = 106.0
+offset_bottom = 14.0

@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cwpqwqm72hdot"]
 
 [ext_resource type="Script" uid="uid://dw7ftsctypgf0" path="res://combustible.gd" id="1_8uig2"]
+[ext_resource type="Texture2D" uid="uid://dtd1tfpoujfm6" path="res://SpritesGUi/fuelgui.png" id="2_o3cgr"]
+[ext_resource type="Texture2D" uid="uid://duu2c5vr1og7p" path="res://SpritesGUi/fuelguiunder.png" id="3_3edi0"]
 
 [node name="Combustible" type="Control" unique_id=352101642]
 layout_mode = 3
@@ -11,9 +13,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8uig2")
 
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=927433681]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=428318629]
 layout_mode = 0
-offset_right = 148.0
-offset_bottom = 27.0
+offset_right = 250.0
+offset_bottom = 250.0
 max_value = 1000.0
-value = 1000.0
+step = 0.01
+fill_mode = 5
+radial_initial_angle = 162.0
+radial_fill_degrees = 143.0
+texture_over = ExtResource("2_o3cgr")
+texture_progress = ExtResource("3_3edi0")
+tint_over = Color(1, 0.4, 0.3254902, 1)
+tint_progress = Color(1, 0.28627452, 0.3254902, 1)
