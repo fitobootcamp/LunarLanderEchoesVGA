@@ -25,4 +25,27 @@ radial_fill_degrees = 143.0
 texture_over = ExtResource("2_o3cgr")
 texture_progress = ExtResource("3_3edi0")
 tint_over = Color(1, 0.4, 0.3254902, 1)
-tint_progress = Color(1, 0.28627452, 0.3254902, 1)
+tint_progress = Color(0.9896667, 1, 0.69, 1)
+
+[node name="Full" type="Label" parent="." unique_id=478664473]
+layout_mode = 0
+offset_left = 142.99998
+offset_top = 14.999998
+offset_right = 182.99998
+offset_bottom = 50.0
+rotation = 0.2872781
+theme_override_colors/font_color = Color(1, 0.4, 0.3254902, 1)
+theme_override_font_sizes/font_size = 25
+text = "F"
+
+[node name="Empty" type="Label" parent="." unique_id=533946325]
+visible = false
+layout_mode = 0
+offset_left = 132.0
+offset_top = 199.00002
+offset_right = 172.0
+offset_bottom = 234.00002
+rotation = -0.27602956
+theme_override_colors/font_color = Color(18.892157, 11.004112, 6.778373, 1)
+theme_override_font_sizes/font_size = 25
+text = "E"

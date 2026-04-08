@@ -11,7 +11,7 @@ func _ready() -> void:
 	gravmax = Globals.migravedad * 9.8
 	gradiente = Gradient.new()
 	gradiente.offsets = PackedFloat32Array([0.2,0.4,0.9])
-	gradiente.colors = PackedColorArray([Color(0.0, 1.0, 0.0, 1.0),Color(1.0, 1.0, 0.0, 1.0),Color(1.0, 0.0, 0.0, 1.0)])
+	gradiente.colors = PackedColorArray([Color(0.22, 0.969, 0.549),Color(1.0, 1.0, 0.0, 1.0),Color(1.0, 0.0, 0.0, 1.0)])
 	pass # Replace with function body.
 
 

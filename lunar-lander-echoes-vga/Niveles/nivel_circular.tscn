@@ -87,14 +87,6 @@ position = Vector2(138, 132)
 scale = Vector2(0.089, 0.089)
 texture = ExtResource("7_f07lc")
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=2014950932]
-visible = false
-offset_left = -1.0
-offset_top = -3.0
-offset_right = 359.0
-offset_bottom = 258.0
-color = Color(0, 0, 0, 1)
-
 [node name="Combustible" parent="CanvasLayer" unique_id=352101642 node_paths=PackedStringArray("navebody") instance=ExtResource("7_akgap")]
 offset_left = 32.000004
 offset_top = 30.999998
@@ -114,8 +106,8 @@ navebody = NodePath("../../Planeta_interior/Nave")
 [node name="Velocimetro" parent="CanvasLayer" unique_id=1343088613 node_paths=PackedStringArray("navebody") instance=ExtResource("5_bvjpd")]
 offset_left = 28.999998
 offset_top = 29.999998
-offset_right = -1123.0
-offset_bottom = -618.0
+offset_right = -11.0
+offset_bottom = -10.0
 scale = Vector2(0.8, 0.8)
 navebody = NodePath("../../Planeta_interior/Nave")
 
@@ -127,6 +119,14 @@ offset_right = 41.0
 offset_bottom = 150.0
 navebody = NodePath("../../Planeta_interior/Nave")
 lookatnode = NodePath("../../Planeta_interior/Node3D")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=2014950932]
+visible = false
+offset_left = -1.0
+offset_top = -3.0
+offset_right = 359.0
+offset_bottom = 258.0
+color = Color(0, 0, 0, 1)
 
 [node name="SubViewportContainer" parent="CanvasLayer" unique_id=429302064 instance=ExtResource("2_3qx8p")]
 visible = false
