@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bxjvm8bbmia7r"]
 
+[ext_resource type="PackedScene" uid="uid://b1tn7bapsier3" path="res://sub_viewport_container.tscn" id="1_miv30"]
 [ext_resource type="Texture2D" uid="uid://divxcbmruk4vj" path="res://space_ft.png" id="1_pae8n"]
 [ext_resource type="PackedScene" uid="uid://rqgplelbsso7" path="res://Nave/nave.tscn" id="2_xwxrw"]
 [ext_resource type="PackedScene" uid="uid://banbyff38s8d1" path="res://SistemaSolar/Sun.tscn" id="3_miv30"]
@@ -26,12 +27,17 @@ tonemap_mode = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=295757485]
 
+[node name="SubViewportContainer" parent="CanvasLayer" unique_id=429302064 instance=ExtResource("1_miv30")]
+z_index = 10
+menutype = "Main"
+
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1118262953]
 offset_right = 512.0
 offset_bottom = 512.0
 scale = Vector2(0.5, 0.5)
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer" unique_id=1287497329]
+self_modulate = Color(0, 0.654902, 0.11372549, 1)
 layout_mode = 2
 texture = SubResource("ViewportTexture_xwxrw")
 

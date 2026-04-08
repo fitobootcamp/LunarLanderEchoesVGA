@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Globals="*uid://civ2tvi70rwu2"
 
+[editor]
+
+movie_writer/movie_file="fgui.ogv"
+
 [global_group]
 
 Crash=""

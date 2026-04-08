@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cyh2awaomrr8h" path="res://Nave/UInave/velocimetro.tscn" id="5_bvjpd"]
 [ext_resource type="PackedScene" uid="uid://bgaypn7gc1vbv" path="res://Nave/UInave/inclinacion.tscn" id="6_k8ip4"]
 [ext_resource type="PackedScene" uid="uid://cwpqwqm72hdot" path="res://Nave/UInave/combustible.tscn" id="7_akgap"]
+[ext_resource type="Texture2D" uid="uid://ccwmcho5lmrct" path="res://SpritesGUi/dashgui.png" id="7_f07lc"]
 [ext_resource type="PackedScene" uid="uid://dbno1jup0jvr5" path="res://Nave/UInave/altimetro.tscn" id="8_jm16t"]
 [ext_resource type="PackedScene" uid="uid://d3fjlo5g310y2" path="res://Nave/UInave/gyro.tscn" id="9_y5d46"]
 
@@ -82,7 +83,13 @@ combustible = 100000.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1474516115]
 
+[node name="dashbg" type="Sprite2D" parent="CanvasLayer" unique_id=1365918118]
+position = Vector2(139, 134)
+scale = Vector2(0.08722919, 0.087229185)
+texture = ExtResource("7_f07lc")
+
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=2014950932]
+visible = false
 offset_left = -1.0
 offset_top = -3.0
 offset_right = 359.0
@@ -90,6 +97,11 @@ offset_bottom = 258.0
 color = Color(0, 0, 0, 1)
 
 [node name="Velocimetro" parent="CanvasLayer" unique_id=1343088613 node_paths=PackedStringArray("navebody") instance=ExtResource("5_bvjpd")]
+offset_left = 28.999998
+offset_top = 29.999998
+offset_right = -1123.0
+offset_bottom = -618.0
+scale = Vector2(0.8, 0.8)
 navebody = NodePath("../../Planeta_interior/Nave")
 
 [node name="Inclinacion" parent="CanvasLayer" unique_id=1718828362 node_paths=PackedStringArray("navebody", "lookatnode") instance=ExtResource("6_k8ip4")]
@@ -113,14 +125,15 @@ offset_right = 218.0
 offset_bottom = 87.0
 navebody = NodePath("../../Planeta_interior/Nave")
 
+[node name="SubViewportContainer" parent="CanvasLayer" unique_id=429302064 instance=ExtResource("2_3qx8p")]
+visible = false
+z_index = 10
+
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=8042822]
 material = SubResource("CanvasItemMaterial_3qx8p")
-position = Vector2(125, 124)
-scale = Vector2(0.32031247, 0.32031247)
+position = Vector2(129, 130)
+scale = Vector2(0.25, 0.25)
 texture = SubResource("ViewportTexture_y5d46")
-
-[node name="SubViewportContainer" parent="CanvasLayer" unique_id=429302064 instance=ExtResource("2_3qx8p")]
-z_index = 10
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=96515897]
 own_world_3d = true

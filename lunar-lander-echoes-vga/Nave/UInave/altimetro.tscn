@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dbno1jup0jvr5"]
 
 [ext_resource type="Script" uid="uid://dmpr66v233tie" path="res://altimetro.gd" id="1_lq45m"]
+[ext_resource type="Texture2D" uid="uid://csr73ngkjaevf" path="res://SpritesGUi/spinygui.png" id="2_0hxpi"]
 
 [node name="altimetro" type="Control" unique_id=1852203877]
 layout_mode = 3
@@ -10,6 +11,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lq45m")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1570340244]
+self_modulate = Color(0.8784314, 0.3764706, 0.27058825, 1)
+texture = ExtResource("2_0hxpi")
 
 [node name="Label" type="Label" parent="." unique_id=1153283653]
 layout_mode = 0

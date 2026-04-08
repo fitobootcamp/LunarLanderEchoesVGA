@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b1tn7bapsier3"]
 
 [ext_resource type="Texture2D" uid="uid://dm4rakgo00vef" path="res://SpritesGUi/greeble.png" id="1_gcxxy"]
+[ext_resource type="Script" uid="uid://c6gl6ay2vxkpr" path="res://MenuHandler.gd" id="1_ggkag"]
 [ext_resource type="AudioStream" uid="uid://vxnyjvo8s5yg" path="res://Sounds/Electromagnetic_Computer_Idle_Loop_Mono_Elektrousi_04.wav" id="1_hapya"]
 [ext_resource type="Texture2D" uid="uid://cti4d370ct5yg" path="res://SpritesGUi/fx4.png" id="1_rbxnt"]
 [ext_resource type="Script" uid="uid://trmi12dpji3v" path="res://guitween.gd" id="1_rwk7q"]
@@ -23,9 +24,12 @@ glow_hdr_threshold = 0.63
 [sub_resource type="FontVariation" id="FontVariation_wpm43"]
 
 [node name="SubViewportContainer" type="SubViewportContainer" unique_id=429302064]
+process_mode = 3
 material = SubResource("CanvasItemMaterial_rbxnt")
 offset_right = 1080.0
 offset_bottom = 1024.0
+script = ExtResource("1_ggkag")
+menutype = "Pause"
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1510346818]
 own_world_3d = true
@@ -204,7 +208,11 @@ theme_override_fonts/font = SubResource("FontVariation_wpm43")
 theme_override_font_sizes/font_size = 10
 text = "0000"
 
+[connection signal="clicked" from="SubViewport/Control/button2" to="." method="_on_button_clicked"]
 [connection signal="hovering" from="SubViewport/Control/button2" to="SubViewport/Control/Label2" method="_on_button_hovering"]
+[connection signal="clicked" from="SubViewport/Control/button3" to="." method="_on_button_clicked"]
 [connection signal="hovering" from="SubViewport/Control/button3" to="SubViewport/Control/Label2" method="_on_button_hovering"]
+[connection signal="clicked" from="SubViewport/Control/button" to="." method="_on_button_clicked"]
 [connection signal="hovering" from="SubViewport/Control/button" to="SubViewport/Control/Label2" method="_on_button_hovering"]
+[connection signal="clicked" from="SubViewport/Control/button4" to="." method="_on_button_clicked"]
 [connection signal="hovering" from="SubViewport/Control/button4" to="SubViewport/Control/Label2" method="_on_button_hovering"]

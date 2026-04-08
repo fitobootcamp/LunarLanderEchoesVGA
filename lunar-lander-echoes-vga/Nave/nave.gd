@@ -29,7 +29,7 @@ func _ready() -> void:
 		#gravity = (cardinalvec * gravity)
 		#state.apply(gravity)
 func _physics_process(delta: float) -> void:
-	
+	#print(global_position)
 	veltrak = linear_velocity.y
 	if Input.is_action_pressed("motor") and combustible > 0:
 		combustible -= 1
@@ -73,6 +73,7 @@ func crash_game_over(bod):
 
 
 func _on_body_entered(body: Node) -> void:
+	
 	print(body.get_groups())
 	if body.is_in_group("Victoria"):
 		audio_stream_player_3d.stream = sonidos[2]

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://7w33uj2c8m2f" path="res://Nave/UInave/VelocimetroUI.gd" id="1_h3j8o"]
 [ext_resource type="Texture2D" uid="uid://qppvau5hotls" path="res://Nave/UInave/uiassets/velotop.png" id="2_ypljo"]
 [ext_resource type="Texture2D" uid="uid://c248kiisb1b61" path="res://Nave/UInave/uiassets/velobott.png" id="3_cnq4h"]
+[ext_resource type="Texture2D" uid="uid://dkdgqdrftaq0t" path="res://SpritesGUi/textrightbubble.png" id="4_cnq4h"]
 
 [node name="Velocimetro" type="Control" unique_id=1343088613]
 layout_mode = 3
@@ -14,16 +15,11 @@ grow_vertical = 2
 script = ExtResource("1_h3j8o")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=950151881]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0.4045111, 0.40451115, 0.4045111, 1)
-
-[node name="Label" type="Label" parent="." unique_id=43309834]
-layout_mode = 0
-offset_right = 54.0
-offset_bottom = 45.0
-theme_override_font_sizes/font_size = 32
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1035690326]
 custom_minimum_size = Vector2(250, 250)
@@ -39,3 +35,18 @@ texture_over = ExtResource("2_ypljo")
 texture_progress = ExtResource("3_cnq4h")
 tint_over = Color(1, 0.4, 0.3254902, 1)
 tint_progress = Color(1, 0.28627452, 0.3254902, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1464816159]
+self_modulate = Color(0.3647059, 0.38431373, 1, 0.64705884)
+position = Vector2(24.999998, 129.99998)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_cnq4h")
+
+[node name="Label" type="Label" parent="." unique_id=43309834]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 104.0
+offset_right = 48.0
+offset_bottom = 149.0
+theme_override_font_sizes/font_size = 32
+text = "10"
