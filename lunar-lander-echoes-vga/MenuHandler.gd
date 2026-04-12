@@ -42,7 +42,10 @@ func _on_button_clicked(_origin: Variant) -> void:
 			get_tree().quit()
 		"RESET":
 			get_tree().paused = false
-			print(get_tree().current_scene.scene_file_path)
-			get_tree().reload_current_scene()			
+			
+			call_deferred("reset")
+						
 			visible = false
 	pass # Replace with function body.
+func reset():
+	get_tree().reload_current_scene()

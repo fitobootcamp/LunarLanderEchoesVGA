@@ -10,11 +10,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	if navebody.combustible <= 20:		
+	
+	if navebody.combustible <= $TextureProgressBar.max_value*.20:		
 		$Empty.visible = true
-	elif navebody.combustible <= 80:
+	elif navebody.combustible < $TextureProgressBar.max_value*.8:
 		$Full.visible = false
-	elif navebody.combustible >= $TextureProgressBar.max_value:
+	elif navebody.combustible >= $TextureProgressBar.max_value*.8:
 		$Full.visible = true
 		
 	$TextureProgressBar.value = navebody.combustible

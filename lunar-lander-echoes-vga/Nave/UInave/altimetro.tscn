@@ -14,11 +14,11 @@ grow_vertical = 2
 script = ExtResource("1_lq45m")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1570340244]
-modulate = Color(1, 0.2784314, 0.16078432, 1)
+self_modulate = Color(1, 0.4, 0.3254902, 1)
 texture = ExtResource("2_0hxpi")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1165861751]
-modulate = Color(0.3647059, 0.38431373, 1, 0.64705884)
+modulate = Color(0.3647059, 0.38431373, 1, 0.79607844)
 position = Vector2(89, 0)
 scale = Vector2(0.025, 0.025)
 texture = ExtResource("3_dkpt3")

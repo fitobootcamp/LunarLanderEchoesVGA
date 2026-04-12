@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3v6jvf20e0br"
-path.s3tc="res://.godot/imported/magic_04_a.png-9591753bb1dadd348392d4bcf35eac88.s3tc.ctex"
+uid="uid://ch71kr42u7gb8"
+path.s3tc="res://.godot/imported/navetexture2.png-95e5187fe9fc8380798a081e4a3a1d0d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://brackeys_vfx_bundle/particles/alpha/magic_04_a.png"
-dest_files=["res://.godot/imported/magic_04_a.png-9591753bb1dadd348392d4bcf35eac88.s3tc.ctex"]
+source_file="res://Niveles/navetexture2.png"
+dest_files=["res://.godot/imported/navetexture2.png-95e5187fe9fc8380798a081e4a3a1d0d.s3tc.ctex"]
 
 [params]
 

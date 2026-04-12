@@ -28,6 +28,19 @@ radius = 0.8
 
 [sub_resource type="PrismMesh" id="PrismMesh_ogx72"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f07lc"]
+blend_mode = 4
+
+[sub_resource type="Environment" id="Environment_f4t2v"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 3.14
+glow_bloom = 0.38
+fog_light_energy = 5.17
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_71wl3"]
+blend_mode = 3
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3qx8p"]
 blend_mode = 4
 
@@ -74,7 +87,7 @@ visible = false
 mesh = SubResource("PrismMesh_ogx72")
 
 [node name="ez3dcamera" type="Camera3D" parent="Planeta_interior/Node3D" unique_id=79903165]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 28.288)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18.49111)
 
 [node name="Nave" parent="Planeta_interior" unique_id=1298575181 instance=ExtResource("1_gvn24")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 69.852554, 0)
@@ -87,38 +100,53 @@ position = Vector2(138, 132)
 scale = Vector2(0.089, 0.089)
 texture = ExtResource("7_f07lc")
 
-[node name="Combustible" parent="CanvasLayer" unique_id=352101642 node_paths=PackedStringArray("navebody") instance=ExtResource("7_akgap")]
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="CanvasLayer" unique_id=460483819]
+material = SubResource("CanvasItemMaterial_f07lc")
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer2" unique_id=483614425]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="CanvasLayer/SubViewportContainer2/SubViewport" unique_id=1650470348]
+environment = SubResource("Environment_f4t2v")
+
+[node name="Combustible" parent="CanvasLayer/SubViewportContainer2/SubViewport" unique_id=352101642 node_paths=PackedStringArray("navebody") instance=ExtResource("7_akgap")]
 offset_left = 32.000004
 offset_top = 30.999998
 offset_right = 32.0
 offset_bottom = 31.0
 scale = Vector2(0.8, 0.8)
-navebody = NodePath("../../Planeta_interior/Nave")
+navebody = NodePath("../../../../Planeta_interior/Nave")
 
-[node name="altimetro" parent="CanvasLayer" unique_id=1852203877 node_paths=PackedStringArray("navebody") instance=ExtResource("8_jm16t")]
+[node name="altimetro" parent="CanvasLayer/SubViewportContainer2/SubViewport" unique_id=1852203877 node_paths=PackedStringArray("navebody") instance=ExtResource("8_jm16t")]
 offset_left = 130.0
 offset_top = 130.0
 offset_right = 130.0
 offset_bottom = 130.0
 scale = Vector2(0.85, 0.85)
-navebody = NodePath("../../Planeta_interior/Nave")
+navebody = NodePath("../../../../Planeta_interior/Nave")
 
-[node name="Velocimetro" parent="CanvasLayer" unique_id=1343088613 node_paths=PackedStringArray("navebody") instance=ExtResource("5_bvjpd")]
+[node name="Velocimetro" parent="CanvasLayer/SubViewportContainer2/SubViewport" unique_id=1343088613 node_paths=PackedStringArray("navebody") instance=ExtResource("5_bvjpd")]
+material = SubResource("CanvasItemMaterial_71wl3")
 offset_left = 28.999998
 offset_top = 29.999998
 offset_right = -11.0
 offset_bottom = -10.0
 scale = Vector2(0.8, 0.8)
-navebody = NodePath("../../Planeta_interior/Nave")
+navebody = NodePath("../../../../Planeta_interior/Nave")
 
-[node name="Inclinacion" parent="CanvasLayer" unique_id=1718828362 node_paths=PackedStringArray("navebody", "lookatnode") instance=ExtResource("6_k8ip4")]
+[node name="Inclinacion" parent="CanvasLayer/SubViewportContainer2/SubViewport" unique_id=1718828362 node_paths=PackedStringArray("navebody", "lookatnode") instance=ExtResource("6_k8ip4")]
 visible = false
 offset_left = 41.0
 offset_top = 150.0
 offset_right = 41.0
 offset_bottom = 150.0
-navebody = NodePath("../../Planeta_interior/Nave")
-lookatnode = NodePath("../../Planeta_interior/Node3D")
+navebody = NodePath("../../../../Planeta_interior/Nave")
+lookatnode = NodePath("../../../../Planeta_interior/Node3D")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=2014950932]
 visible = false
@@ -152,4 +180,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.674805, 5.75222, 0)
 navebody = NodePath("../../Planeta_interior/Nave")
 lookatnode = NodePath("../../Planeta_interior/Node3D")
 
+[connection signal="body_entered" from="Planeta_interior/Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Planeta_interior/Area3D" to="." method="_on_area_3d_body_exited"]

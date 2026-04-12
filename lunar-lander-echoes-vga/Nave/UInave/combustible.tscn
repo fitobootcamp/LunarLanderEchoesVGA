@@ -34,7 +34,7 @@ offset_top = 14.999998
 offset_right = 182.99998
 offset_bottom = 50.0
 rotation = 0.2872781
-theme_override_colors/font_color = Color(1, 0.4, 0.3254902, 1)
+theme_override_colors/font_color = Color(0.9882353, 1, 0.6901961, 1)
 theme_override_font_sizes/font_size = 25
 text = "F"
 
@@ -46,6 +46,6 @@ offset_top = 199.00002
 offset_right = 172.0
 offset_bottom = 234.00002
 rotation = -0.27602956
-theme_override_colors/font_color = Color(18.892157, 11.004112, 6.778373, 1)
+theme_override_colors/font_color = Color(0.988, 1, 0.69, 1)
 theme_override_font_sizes/font_size = 25
 text = "E"

@@ -5,30 +5,12 @@
 [ext_resource type="AudioStream" uid="uid://fd7ykt5i80jx" path="res://SFX/SUCCESS BEEPS Multi Echo Short 02.ogg" id="3_nxrwe"]
 [ext_resource type="AudioStream" uid="uid://vt8yncbv73yt" path="res://SFX/SUCCESS CHIME Bells Sparkle Tune Completion 05.ogg" id="4_e1old"]
 [ext_resource type="AudioStream" uid="uid://dcj0xiqsbmr2k" path="res://SFX/ENGINE Motor Heavy Loop 08.ogg" id="5_e1old"]
+[ext_resource type="PackedScene" uid="uid://n1hypt5fcjue" path="res://navesmall.tscn" id="5_kihxk"]
+[ext_resource type="PackedScene" uid="uid://lmypnwm3yv7b" path="res://engineparticles.tscn" id="7_1kdj2"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_e1old"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_gmwes"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_kihxk"]
-height = 1.0
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_1kdj2"]
-top_radius = 0.35
-bottom_radius = 0.35
-height = 0.5
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_e1old"]
-top_radius = 0.3
-bottom_radius = 0.45
-height = 0.5
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_kihxk"]
-radius = 0.15
-height = 4.0
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_2j0rn"]
-height = 4.727
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_kihxk"]
+height = 1.7888184
+radius = 0.5151367
 
 [sub_resource type="Curve" id="Curve_2j0rn"]
 _limits = [-200.0, 200.0, 0.0, 1.0]
@@ -88,7 +70,7 @@ turbulence_noise_scale = 1.747
 [sub_resource type="PrismMesh" id="PrismMesh_2j0rn"]
 material = SubResource("StandardMaterial3D_2j0rn")
 
-[node name="Nave" type="RigidBody3D" unique_id=1298575181 groups=["Jugador"]]
+[node name="Nave" type="RigidBody3D" unique_id=1298575181 node_paths=PackedStringArray("mainthruster") groups=["Jugador"]]
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
@@ -97,57 +79,13 @@ max_contacts_reported = 10
 linear_damp = 1.0
 script = ExtResource("1_2j0rn")
 sonidos = Array[AudioStream]([ExtResource("2_ltov4"), ExtResource("3_nxrwe"), ExtResource("4_e1old")])
+mainthruster = NodePath("engineparticles")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=94736868]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9975572, 0)
-mesh = SubResource("SphereMesh_e1old")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=322542388]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0010028, 0)
-mesh = SubResource("SphereMesh_e1old")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1748715837]
-mesh = SubResource("CylinderMesh_gmwes")
-
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=2008856571]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("SphereMesh_e1old")
-
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="." unique_id=2003724879]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-mesh = SubResource("SphereMesh_e1old")
-
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="." unique_id=1522076219]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5030105, 0)
-mesh = SubResource("CylinderMesh_kihxk")
-
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="." unique_id=1437517150]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4966712, 0)
-mesh = SubResource("CylinderMesh_1kdj2")
-
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="." unique_id=864064633]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6023695, 0)
-mesh = SubResource("CylinderMesh_e1old")
-
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="." unique_id=634475416]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.11485243, 1)
-mesh = SubResource("CapsuleMesh_kihxk")
-
-[node name="MeshInstance3D11" type="MeshInstance3D" parent="." unique_id=1696925232]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.11485243, -1)
-mesh = SubResource("CapsuleMesh_kihxk")
-
-[node name="MeshInstance3D12" type="MeshInstance3D" parent="." unique_id=475343909]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.11485243, -1)
-mesh = SubResource("CapsuleMesh_kihxk")
-
-[node name="MeshInstance3D13" type="MeshInstance3D" parent="." unique_id=233252362]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.11485243, 1)
-mesh = SubResource("CapsuleMesh_kihxk")
+[node name="Node3D" parent="." unique_id=1824807326 instance=ExtResource("5_kihxk")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1028396047]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44409943, 0)
-shape = SubResource("CylinderShape3D_2j0rn")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.39697528, 0)
+shape = SubResource("CylinderShape3D_kihxk")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1009429006]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0091195, 0)
@@ -193,6 +131,10 @@ spot_angle = 22.922535
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=725040740]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3487303, 0)
+light_energy = 2.28
 omni_range = 8.724805
+
+[node name="engineparticles" parent="." unique_id=776073243 instance=ExtResource("7_1kdj2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6231654, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

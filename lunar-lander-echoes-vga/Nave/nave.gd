@@ -8,7 +8,7 @@ extends RigidBody3D
 @export var escudo : int = 1
 @export var uimesh : bool = false
 @export var sonidos : Array [AudioStream]
-
+@export var mainthruster : GPUParticles3D
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 @onready var turbina: AudioStreamPlayer3D = $turbina
 
@@ -35,12 +35,12 @@ func _physics_process(delta: float) -> void:
 		combustible -= 1
 		apply_central_impulse(basis.y * impulso * delta)
 		combustible = clamp(combustible - (consumo * delta),0,combustible)
-		$GPUParticles3D.emitting = true
+		mainthruster.emitting = true
 		if turbina.playing == false:
 			turbina.play()
 		#printt("Combustible: ",combustible)
 	if Input.is_action_just_released("motor"):
-		$GPUParticles3D.emitting = false
+		mainthruster.emitting = false
 		
 		turbina.stop()
 		pass
@@ -74,7 +74,7 @@ func crash_game_over(bod):
 
 func _on_body_entered(body: Node) -> void:
 	
-	print(body.get_groups())
+	
 	if body.is_in_group("Victoria"):
 		audio_stream_player_3d.stream = sonidos[2]
 		audio_stream_player_3d.play()

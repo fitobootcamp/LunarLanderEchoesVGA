@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://lmypnwm3yv7b"]
+
+[ext_resource type="Texture2D" uid="uid://bkwgv56bp567k" path="res://brackeys_vfx_bundle/particles/alpha/muzzle_04_a.png" id="1_aj6pn"]
+
+[sub_resource type="Gradient" id="Gradient_d3iu4"]
+offsets = PackedFloat32Array(0.19166666, 0.375, 0.60833335, 1)
+colors = PackedColorArray(0.8128633, 0.843154, 0.99752945, 1, 0.18328872, 2.5220514e-05, 0.70897484, 1, 0.7647059, 0.4117647, 0, 1, 0.9490196, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jr1wy"]
+gradient = SubResource("Gradient_d3iu4")
+
+[sub_resource type="Curve" id="Curve_aj6pn"]
+_data = [Vector2(0.03424658, 0.056179762), 0.0, 0.0, 0, 0, Vector2(0.36301368, 1), 2.187266, 2.187266, 0, 0, Vector2(0.9863014, 0.011235952), -7.0366626, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_d3iu4"]
+curve = SubResource("Curve_aj6pn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rdno6"]
+scale_min = 0.0
+scale_curve = SubResource("CurveTexture_d3iu4")
+color_ramp = SubResource("GradientTexture1D_jr1wy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aj6pn"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("1_aj6pn")
+disable_receive_shadows = true
+billboard_keep_scale = true
+point_size = 48.6
+
+[sub_resource type="QuadMesh" id="QuadMesh_d3iu4"]
+material = SubResource("StandardMaterial3D_aj6pn")
+size = Vector2(1.5, 1.5)
+
+[node name="engineparticles" type="GPUParticles3D" unique_id=1783214930]
+emitting = false
+amount = 20
+lifetime = 0.51
+local_coords = true
+transform_align = 3
+process_material = SubResource("ParticleProcessMaterial_rdno6")
+draw_pass_1 = SubResource("QuadMesh_d3iu4")
