@@ -14,7 +14,14 @@
 [ext_resource type="PackedScene" uid="uid://dbno1jup0jvr5" path="res://Nave/UInave/altimetro.tscn" id="8_jm16t"]
 [ext_resource type="PackedScene" uid="uid://d3fjlo5g310y2" path="res://Nave/UInave/gyro.tscn" id="9_y5d46"]
 
+[sub_resource type="Gradient" id="Gradient_f07lc"]
+colors = PackedColorArray(0.65834004, 0.6583399, 0.6583399, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f4t2v"]
+gradient = SubResource("Gradient_f07lc")
+
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ogx72"]
+panorama = SubResource("GradientTexture2D_f4t2v")
 
 [sub_resource type="Sky" id="Sky_bvjpd"]
 sky_material = SubResource("PanoramaSkyMaterial_ogx72")
@@ -87,7 +94,7 @@ visible = false
 mesh = SubResource("PrismMesh_ogx72")
 
 [node name="ez3dcamera" type="Camera3D" parent="Planeta_interior/Node3D" unique_id=79903165]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18.49111)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.360479)
 
 [node name="Nave" parent="Planeta_interior" unique_id=1298575181 instance=ExtResource("1_gvn24")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 69.852554, 0)

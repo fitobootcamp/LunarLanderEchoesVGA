@@ -130,7 +130,7 @@ spot_range = 26.819569
 spot_angle = 22.922535
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=725040740]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3487303, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8739779, 0.57408094)
 light_energy = 2.28
 omni_range = 8.724805
 

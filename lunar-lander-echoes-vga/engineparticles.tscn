@@ -36,7 +36,6 @@ material = SubResource("StandardMaterial3D_aj6pn")
 size = Vector2(1.5, 1.5)
 
 [node name="engineparticles" type="GPUParticles3D" unique_id=1783214930]
-emitting = false
 amount = 20
 lifetime = 0.51
 local_coords = true

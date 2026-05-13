@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Globals="*uid://civ2tvi70rwu2"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [editor]
 
 movie_writer/movie_file="fgui.ogv"
